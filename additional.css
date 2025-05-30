@@ -1,0 +1,251 @@
+/* Additional CSS for new portfolio sections */
+
+/* Experience & Education */
+.experience, .testimonials, .blog {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 32px 24px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.experience:hover, .testimonials:hover, .blog:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(240, 165, 0, 0.2);
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 120px;
+    width: 2px;
+    background: #f0a500;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+    padding-left: 150px;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 114px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #f0a500;
+    box-shadow: 0 0 0 4px #0d1b2a;
+}
+
+.timeline-date {
+    position: absolute;
+    left: 0;
+    width: 100px;
+    text-align: right;
+    color: #f0a500;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.timeline-content {
+    background: #1c1c1c;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-left: 3px solid #f0a500;
+}
+
+.timeline-content h3 {
+    margin-top: 0;
+    color: #f0a500;
+    font-size: 1.2rem;
+}
+
+.timeline-content p {
+    margin: 10px 0 0;
+    color: #e5e5e5;
+    line-height: 1.5;
+}
+
+/* Testimonials */
+.testimonials-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.testimonial-card {
+    background: #1c1c1c;
+    border-radius: 6px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-top: 3px solid #f0a500;
+    position: relative;
+}
+
+.testimonial-card::before {
+    content: "\201C";
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    font-size: 60px;
+    color: rgba(240, 165, 0, 0.2);
+    font-family: serif;
+    line-height: 1;
+}
+
+.testimonial-content {
+    font-style: italic;
+    line-height: 1.6;
+    color: #e5e5e5;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.testimonial-author {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid rgba(240, 165, 0, 0.2);
+    padding-top: 15px;
+}
+
+.testimonial-name {
+    font-weight: 700;
+    color: #f0a500;
+    font-size: 1.1rem;
+}
+
+.testimonial-position {
+    color: #e5e5e5;
+    font-size: 0.9rem;
+    margin-top: 3px;
+}
+
+/* Blog/Tech Insights */
+.blog-posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.blog-post {
+    background: #1c1c1c;
+    border-radius: 6px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-bottom: 3px solid #f0a500;
+}
+
+.blog-post:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.blog-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #f0a500;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.blog-date {
+    font-size: 0.85rem;
+    color: #e5e5e5;
+    opacity: 0.8;
+    margin-bottom: 15px;
+}
+
+.blog-excerpt {
+    color: #e5e5e5;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.blog-read-more {
+    display: inline-block;
+    color: #f0a500;
+    font-weight: 600;
+    text-decoration: none;
+    position: relative;
+}
+
+.blog-read-more::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #f0a500;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.blog-read-more:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 50px;
+    }
+    
+    .timeline-item {
+        padding-left: 80px;
+    }
+    
+    .timeline-dot {
+        left: 44px;
+    }
+    
+    .timeline-date {
+        width: 60px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .experience, .testimonials, .blog { 
+        padding: 18px 8px; 
+    }
+    
+    .timeline::before {
+        left: 30px;
+    }
+    
+    .timeline-item {
+        padding-left: 60px;
+    }
+    
+    .timeline-dot {
+        left: 24px;
+    }
+    
+    .timeline-date {
+        position: relative;
+        left: -30px;
+        width: auto;
+        text-align: left;
+        margin-bottom: 5px;
+        font-size: 0.8rem;
+    }
+} 

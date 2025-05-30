@@ -1,0 +1,64 @@
+/* Contact Button Styles */
+.contact-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 25px;
+    background: var(--navy-light);
+    color: var(--white);
+    border-radius: 4px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin-top: 10px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    margin-left: 15px; /* Add space between buttons */
+}
+
+.contact-button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: var(--navy);
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.contact-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 7px 20px rgba(26, 45, 66, 0.3);
+}
+
+.contact-button:hover:before {
+    width: 100%;
+}
+
+.contact-button i {
+    margin-right: 10px;
+    font-size: 1.1rem;
+    color: var(--gold);
+}
+
+/* Match the size of both buttons */
+.header-buttons {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.cv-button, .contact-button {
+    min-width: 160px;
+    text-align: center;
+    justify-content: center;
+}
+
+/* Add smooth scrolling for the page */
+html {
+    scroll-behavior: smooth;
+}
