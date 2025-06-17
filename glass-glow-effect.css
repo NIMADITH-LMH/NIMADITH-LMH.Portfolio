@@ -1,0 +1,174 @@
+/* Gold glow effect for glass elements */
+
+/* Enhanced glass container styling */
+.glass {
+    background: rgba(26, 45, 66, 0.6);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(240, 165, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Inner glow effect on hover */
+.glass::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(240, 165, 0, 0.05) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    z-index: -2;
+    border-radius: 12px;
+    pointer-events: none;
+}
+
+/* Outer glow effect on hover */
+.glass::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 0 rgba(240, 165, 0, 0);
+    border-radius: 12px;
+    opacity: 0;
+    transition: all 0.5s ease;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Hover state */
+.glass:hover {
+    box-shadow: 0 15px 40px rgba(240, 165, 0, 0.25);
+    border: 1px solid rgba(240, 165, 0, 0.4);
+    transform: translateY(-5px) scale(1.01);
+    background: rgba(26, 45, 66, 0.7);
+}
+
+.glass:hover::before {
+    opacity: 1;
+}
+
+.glass:hover::after {
+    opacity: 0.6;
+    box-shadow: 0 0 40px rgba(240, 165, 0, 0.4);
+}
+
+/* Gold particle animation for glass elements */
+@keyframes floatGoldParticle {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+    20% { opacity: 0.9; }
+    80% { opacity: 0.9; }
+    100% { transform: translateY(-30px) rotate(360deg); opacity: 0; }
+}
+
+.gold-particle {
+    position: absolute;
+    background-color: rgba(240, 165, 0, 0.5);
+    border-radius: 50%;
+    opacity: 0;
+    box-shadow: 0 0 15px rgba(240, 165, 0, 0.9);
+    transition: opacity 0.5s ease;
+}
+
+/* Footer specific gold glow effect */
+.footer.glass:hover {
+    box-shadow: 0 15px 40px rgba(240, 165, 0, 0.2);
+    border: 1px solid rgba(240, 165, 0, 0.3);
+    transform: translateY(-5px);
+}
+
+/* Timeline container specific gold glow effect */
+.timeline-container.glass:hover {
+    box-shadow: 0 15px 40px rgba(240, 165, 0, 0.25);
+    border: 1px solid rgba(240, 165, 0, 0.4);
+    transform: translateY(-5px) scale(1.01);
+}
+
+/* Transition for all hover effects */
+* {
+    transition-property: transform, box-shadow, border, background, opacity;
+    transition-duration: 0.3s;
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Gold shimmer effect */
+@keyframes goldShimmer {
+    0% { background-position: -100% 0; }
+    100% { background-position: 200% 0; }
+}
+
+.gold-shimmer {
+    position: relative;
+    overflow: hidden;
+}
+
+.gold-shimmer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(240, 165, 0, 0.2), 
+        transparent);
+    background-size: 200% 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    animation: goldShimmer 3s linear infinite;
+    pointer-events: none;
+}
+
+.glass:hover .gold-shimmer::after,
+.glass.gold-shimmer:hover::after {
+    opacity: 1;
+}
+
+/* Mobile responsive styles for glass elements */
+@media (max-width: 768px) {
+    .glass {
+        -webkit-backdrop-filter: blur(8px);
+        backdrop-filter: blur(8px);
+        border-radius: 10px;
+    }
+    
+    .glass:hover {
+        transform: translateY(-3px);
+    }
+    
+    .pdf-card.glass:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(240, 165, 0, 0.2);
+    }
+    
+    /* Optimize particle effects for mobile */
+    .gold-particles {
+        display: none; /* Hide particles on mobile for better performance */
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+    .glass::before, 
+    .glass::after {
+        display: none; /* Hide complex effects on touch devices */
+    }
+    
+    .pdf-card.glass {
+        background: rgba(26, 45, 66, 0.8); /* Darker background for better contrast */
+    }
+    
+    .pdf-card .pdf-icon {
+        opacity: 1; /* Always show icons on touch devices */
+    }
+}

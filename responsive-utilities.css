@@ -1,0 +1,53 @@
+/* Responsive text adjustments */
+.responsive-text-sm {
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
+}
+
+.responsive-text-md {
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+}
+
+.responsive-text-lg {
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
+}
+
+.responsive-text-xl {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+/* Fluid spacing utilities */
+.fluid-margin-top {
+    margin-top: clamp(15px, 3vw, 40px);
+}
+
+.fluid-margin-bottom {
+    margin-bottom: clamp(15px, 3vw, 40px);
+}
+
+.fluid-padding {
+    padding: clamp(10px, 2vw, 20px);
+}
+
+/* Mobile accessibility improvements */
+@media (max-width: 768px) {
+    /* Increase touch target sizes for better accessibility */
+    .pdf-link, button, a {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Ensure sufficient spacing between clickable elements */
+    .pdf-gallery {
+        gap: clamp(15px, 3vw, 25px);
+    }
+    
+    /* Improve text readability on small screens */
+    .pdf-card {
+        line-height: 1.4;
+    }
+    
+    /* Ensure sufficient contrast */
+    .pdf-title {
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+    }
+}

@@ -1,0 +1,523 @@
+/* PDF Certificate Gallery Styles */
+.pdf-section {
+    margin-top: 50px;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.pdf-section::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(240, 165, 0, 0.3), transparent);
+    z-index: -1;
+}
+
+.pdf-section-title {
+    color: var(--gold);
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 10px;
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0 15px;
+}
+
+.pdf-section-title::after {
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 2px;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--gold);
+    transition: width 0.3s ease, height 0.3s ease;
+    margin: 0 auto;
+    display: block;
+}
+
+.pdf-section-title:hover::after {
+    width: 100%;
+    height: 3px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.pdf-section-description {
+    color: var(--off-white);
+    text-align: center;
+    margin: 10px auto 30px;
+    max-width: 600px;
+    font-size: 0.95rem;
+    opacity: 0.8;
+    font-style: italic;
+}
+
+.pdf-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 10px;
+    perspective: 1000px;
+}
+
+.pdf-card {
+    background: rgba(26, 45, 66, 0.6);
+    border: 1px solid rgba(240, 165, 0, 0.2);
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 0.6s ease-out;
+    animation-fill-mode: both;
+    opacity: 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.pdf-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background-color: var(--gold);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.3s ease;
+}
+
+.pdf-card:hover::before {
+    transform: scaleY(1);
+}
+
+.pdf-card:hover {
+    transform: translateY(-8px) rotateX(5deg);
+    box-shadow: 0 15px 30px rgba(240, 165, 0, 0.3);
+    border-color: var(--gold);
+    background: rgba(26, 45, 66, 0.7);
+}
+
+/* Special styling for PDF cards with glass effect */
+.pdf-card.glass {
+    background: rgba(26, 45, 66, 0.7);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(240, 165, 0, 0.2);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.pdf-card.glass:hover {
+    box-shadow: 0 15px 40px rgba(240, 165, 0, 0.25);
+    border: 1px solid rgba(240, 165, 0, 0.4);
+    transform: translateY(-8px) rotateX(5deg) scale(1.01);
+    background: rgba(26, 45, 66, 0.7);
+}
+
+.pdf-card.glass:hover .pdf-icon {
+    text-shadow: 0 0 15px rgba(240, 165, 0, 0.9);
+}
+
+.pdf-card.glass:hover .pdf-link {
+    background-color: rgba(240, 165, 0, 0.2);
+}
+
+/* Add a subtle glow to the title on hover */
+.pdf-card.glass:hover .pdf-title {
+    text-shadow: 0 0 10px rgba(240, 165, 0, 0.5);
+}
+
+.pdf-title {
+    color: var(--gold);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    line-height: 1.3;
+    position: relative;
+    z-index: 2;
+}
+
+.pdf-icon {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    color: var(--gold);
+    font-size: 1.5rem;
+    opacity: 0.7;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-shadow: 0 0 5px rgba(240, 165, 0, 0.2);
+    z-index: 2;
+}
+
+.pdf-card:hover .pdf-icon {
+    transform: translateY(-3px) rotate(8deg) scale(1.2);
+    opacity: 1;
+    text-shadow: 0 0 10px rgba(240, 165, 0, 0.8);
+}
+
+.pdf-link {
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    background-color: rgba(240, 165, 0, 0.1);
+    padding: 10px 15px;
+    border-radius: 4px;
+    color: var(--off-white);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+    margin-bottom: 5px;
+}
+
+.pdf-link i {
+    margin-right: 8px;
+    font-size: 1.1rem;
+    color: var(--gold);
+    transition: all 0.3s ease;
+}
+
+.pdf-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: var(--gold);
+    transition: width 0.3s ease;
+    z-index: -1;
+}
+
+.pdf-link:hover::before {
+    width: 100%;
+}
+
+.pdf-link:hover {
+    color: var(--navy);
+    transform: translateY(-2px);
+}
+
+.pdf-link:hover i {
+    color: var(--navy);
+    transform: translateX(-3px);
+}
+
+/* Extra centering for section titles */
+.pdf-section-wrapper {
+    text-align: center;
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.pdf-section-wrapper h2 {
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+    .pdf-section-title {
+        font-size: 1.3rem;
+    }
+    
+    .pdf-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 5px;
+    }
+    
+    .pdf-card {
+        height: 180px;
+        padding: 15px;
+    }
+    
+    .pdf-title {
+        font-size: 1rem;
+    }
+    
+    .pdf-icon {
+        font-size: 1.3rem;
+        right: 10px;
+        top: 10px;
+    }
+    
+    .pdf-link {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Additional responsive styles for smaller devices */
+@media (max-width: 380px) {
+    .pdf-card {
+        padding: 12px;
+    }
+    
+    .pdf-title {
+        font-size: 0.95rem;
+    }
+    
+    .pdf-link {
+        padding: 6px 10px;
+        font-size: 0.85rem;
+    }
+    
+    .pdf-link i {
+        font-size: 1rem;
+    }
+    
+    .pdf-icon {
+        font-size: 1.2rem;
+        right: 8px;
+        top: 8px;
+    }
+    
+    .pdf-section-description {
+        font-size: 0.85rem;
+        margin: 10px auto 20px;
+    }
+    
+    .page-title {
+        font-size: 1.8rem;
+    }
+    
+    .page-subtitle {
+        font-size: 1rem;
+    }
+}
+
+/* Extra small device optimizations */
+@media (max-width: 360px) {
+    .pdf-card {
+        padding: 10px;
+        min-height: 150px;
+    }
+    
+    .pdf-title {
+        font-size: 0.9rem;
+        margin-bottom: 8px;
+    }
+    
+    .pdf-link {
+        padding: 6px 8px;
+        font-size: 0.8rem;
+    }
+    
+    .pdf-link i {
+        font-size: 0.9rem;
+        margin-right: 5px;
+    }
+    
+    .pdf-icon {
+        font-size: 1.1rem;
+        right: 7px;
+        top: 7px;
+    }
+    
+    .pdf-section-title {
+        font-size: 1.1rem;
+    }
+    
+    .pdf-section-description {
+        font-size: 0.8rem;
+    }
+    
+    .page-title {
+        font-size: 1.6rem;
+        margin-top: 30px;
+    }
+    
+    .page-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 30px;
+    }
+}
+
+/* Back to Top Button */
+.back-to-top {
+    text-align: center;
+    margin: 50px auto 30px;
+}
+
+.back-to-top-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--navy-light);
+    color: var(--gold);
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(240, 165, 0, 0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 100;
+}
+
+.back-to-top-button i {
+    font-size: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.back-to-top-button:hover {
+    background-color: var(--gold);
+    color: var(--navy);
+    transform: translateY(-5px);
+}
+
+.back-to-top-button:hover i {
+    transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+    .back-to-top-button {
+        bottom: 20px;
+        right: 20px;
+        padding: 8px 15px;
+    }
+    
+    .back-to-top-button span {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .back-to-top-button {
+        bottom: 15px;
+        right: 15px;
+        padding: 8px;
+        border-radius: 50%;
+    }
+    
+    .back-to-top-button i {
+        margin: 0;
+    }
+}
+
+/* JavaScript will apply these classes */
+.visible {
+    opacity: 1;
+}
+
+.pulse-animation {
+    animation: pulse 2s infinite;
+}
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+/* Animation delays for card display */
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+.delay-6 { animation-delay: 0.6s; }
+.delay-7 { animation-delay: 0.7s; }
+.delay-8 { animation-delay: 0.8s; }
+.delay-9 { animation-delay: 0.9s; }
+.delay-10 { animation-delay: 1.0s; }
+.delay-11 { animation-delay: 1.1s; }
+.delay-12 { animation-delay: 1.2s; }
+
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+/* Customized particle animation for PDF cards */
+@keyframes floatPDFParticle {
+    0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 0; }
+    20% { opacity: 0.8; }
+    80% { opacity: 0.8; }
+    100% { transform: translateY(-25px) rotate(360deg) scale(0.5); opacity: 0; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .pdf-card {
+        height: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .pdf-gallery {
+        grid-template-columns: 1fr;
+    }
+    
+    .pdf-card {
+        height: auto;
+        min-height: 160px;
+    }
+}
+
+/* Gold particle styling for PDF cards */
+.gold-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.pdf-card .gold-particle {
+    position: absolute;
+    background-color: rgba(240, 165, 0, 0.5);
+    border-radius: 50%;
+    opacity: 0;
+    box-shadow: 0 0 15px rgba(240, 165, 0, 0.9);
+    transition: opacity 0.5s ease;
+}
+
+/* Touch device hover effect overrides */
+@media (hover: none) {
+    /* Active state for touch devices instead of hover */
+    .pdf-card:active {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(240, 165, 0, 0.2);
+        border-color: var(--gold);
+    }
+    
+    .pdf-link:active {
+        color: var(--navy);
+        background-color: var(--gold);
+    }
+    
+    .pdf-link:active i {
+        color: var(--navy);
+    }
+    
+    /* Make sure icons are visible by default */
+    .pdf-icon {
+        opacity: 0.9;
+    }
+}

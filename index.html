@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+<head>    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nimadith LMH | Portfolio</title>    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&display=swap" rel="stylesheet">    <link rel="stylesheet" href="style.css">
+    <title>Nimadith LMH | Portfolio</title>
+    <link rel="icon" type="image/jpeg" href="tab_preview_img.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="contact.css">
-    <link rel="stylesheet" href="contact-button.css">    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="contact-button.css">    <link rel="stylesheet" href="navigation.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="glass-glow-effect.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="contact-scroll.js" defer></script>
+    <script src="navigation.js" defer></script>
+    <script src="glass-glow-effect.js" defer></script>
 </head>
-<body>    <header>
+<body>
+    <header>
         <img src="myImage.jpg" alt="Profile" class="profile-img">
         <h1>NIMADITH LMH</h1>
         <div class="tagline">Innovative IT Enthusiast | Building Solutions for the Future</div>
@@ -17,57 +25,22 @@
             <a href="NIMADITH LMH.pdf" class="cv-button" download><i class="fas fa-file-pdf"></i> Download CV</a>
             <a href="#contact-section" class="contact-button"><i class="fas fa-envelope"></i> Contact Me</a>
         </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="certifications.html">Certifications</a></li>
+                <li><a href="experience.html">Experience & Education</a></li>
+                <li><a href="tech-insights.html">Tech Insights</a></li>
+            </ul>
+        </nav>
     </header>
+
     <section class="about glass">
         <div class="section-title">About Me</div>
         <p>Hi, I'm Nimadith, an undergraduate IT enthusiast from SLIIT. Passionate about building efficient and scalable solutions for real world problems.</p>
     </section>
-    <section class="projects glass">
-        <div class="section-title">Projects</div>
-        <div class="projects-list">
-            <div class="project-card">
-                <div class="project-title">Online Computer Parts Management System</div>
-                <div class="project-desc">A Java-based web application designed to streamline the management of computer parts for both customers and sellers.</div>
-                <a href="https://github.com/NIMADITH-LMH/Online-Computer-Parts-Management-System" target="_blank" rel="noopener" class="view-project">View on GitHub</a>
-            </div>
-            
-            <div class="project-card">
-                <div class="project-title">Finance Tracker App</div>
-                <div class="project-desc">A simple and efficient finance tracking app to help users manage expenses, income, and budgets with ease.</div>
-                <a href="https://github.com/NIMADITH-LMH/Finance-Tracker-App" target="_blank" rel="noopener" class="view-project">View on GitHub</a>
-            </div>
-            
-            <div class="project-card">
-                <div class="project-title">Fashion Pulse</div>
-                <div class="project-desc">A MERN stack-based web app that lets users browse dresses from various shops and buy them online with secure payments.</div>
-                <a href="https://github.com/NIMADITH-LMH/Fashion-Pulse" target="_blank" rel="noopener" class="view-project">View on GitHub</a>
-            </div>
-            
-            <div class="project-card">
-                <div class="project-title">Music Player</div>
-                <div class="project-desc">A modern, scalable desktop music player built with Electron.js, HTML, CSS, and JavaScript.</div>
-                <a href="https://github.com/NIMADITH-LMH/Music-Player" target="_blank" rel="noopener" class="view-project">View on GitHub</a>
-            </div>
-            
-            <div class="project-card">
-                <div class="project-title">Scientific Calculator</div>
-                <div class="project-desc">A feature-rich desktop application with advanced mathematical functions beyond basic arithmetic.</div>
-                <a href="https://github.com/NIMADITH-LMH/Scientific-Calculator" target="_blank" rel="noopener" class="view-project">View on GitHub</a>
-            </div>
-            
-            <div class="project-card">
-                <div class="project-title">Noughts and Crosses Mobile Game</div>
-                <div class="project-desc">A classic Tic-Tac-Toe game with a sleek design and smooth gameplay. Play solo or challenge a friend.</div>
-                <a href="https://github.com/NIMADITH-LMH/Noughts-and-Crosses-Mobile-Game" target="_blank" rel="noopener" class="view-project">View on GitHub</a>
-            </div>
-            
-            <div class="project-card">
-                <div class="project-title">Wildlife Safari Management System</div>
-                <div class="project-desc">A comprehensive project designed to streamline the operations of a safari booking and management platform.</div>
-                <a href="https://github.com/NIMADITH-LMH/Wildlife-safari-Managements-System" target="_blank" rel="noopener" class="view-project">View on GitHub</a>
-            </div>
-        </div>
-    </section>
+    
     <section class="skills glass">
         <div class="section-title">Skills & Tools</div>
         <div class="skills-list">
@@ -93,187 +66,8 @@
             <div class="skill"><i class="fab fa-docker"></i> Docker</div>
         </div>
     </section>
-    <section class="experience glass">
-        <div class="section-title">Experience & Education</div>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-date">2023 - 2027</div>
-                <div class="timeline-content">
-                    <h3>BSc Information Technology, Information Technology</h3>
-                    <p>SLIIT</p>
-                    <p>Jun 2023 - Jul 2027</p>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-date">2009 - 2023</div>
-                <div class="timeline-content">
-                    <h3>Rahula College</h3>
-                    <p>Jan 2009 - Feb 2023</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section class="testimonials glass">
-        <div class="section-title">Testimonials</div>
-        <!-- Content removed as requested -->
-    </section>
-    
-    <section class="blog glass">
-        <div class="section-title">Tech Insights</div>
-        <div class="blog-posts">
-            <div class="blog-post">
-                <div class="blog-title">Understanding the MERN Stack: A Beginner's Guide</div>
-                <div class="blog-excerpt">
-                    In this article, I break down the components of the MERN stack (MongoDB, Express, React, Node.js) and explain how they work together to create modern web applications.
-                </div>
-                <div class="blog-full-content">
-                    <p>The MERN stack consists of four key technologies:</p>
-                    <ul>
-                        <li><strong>MongoDB</strong>: A NoSQL database that stores data in flexible, JSON-like documents, allowing for faster and more scalable application development.</li>
-                        <li><strong>Express</strong>: A minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.</li>
-                        <li><strong>React</strong>: A JavaScript library for building user interfaces, particularly single-page applications where you need a responsive UI that updates quickly.</li>
-                        <li><strong>Node.js</strong>: A JavaScript runtime built on Chrome's V8 JavaScript engine, allowing you to run JavaScript on the server side.</li>
-                    </ul>
-                    <p>What makes the MERN stack powerful is how these technologies work together. MongoDB stores your data, Express handles API requests, React builds your user interface, and Node.js runs the server environment. Using JavaScript throughout the stack means developers can work more efficiently without having to switch between different programming languages.</p>
-                    <p>For beginners, the MERN stack offers a great entry point to full-stack development, with a thriving community and plenty of learning resources available online.</p>
-                </div>
-                <a href="javascript:void(0);" class="blog-read-more" onclick="toggleBlogContent(this)">Read More</a>
-            </div>
-            
-            <div class="blog-post">
-                <div class="blog-title">5 Essential Git Commands Every Developer Should Know</div>
-                <div class="blog-excerpt">
-                    Git is essential for modern development workflows. Here, I share the most important commands that have helped me in my projects and how to use them effectively.
-                </div>
-                <div class="blog-full-content">
-                    <p>These are the 5 Git commands I use most frequently:</p>
-                    <ol>
-                        <li><strong>git clone</strong>: This command creates a copy of an existing repository. Usage: <code>git clone [repository-url]</code></li>
-                        <li><strong>git add</strong>: Stages changes for commit. You can add specific files or all changes. Usage: <code>git add [file-name]</code> or <code>git add .</code> for all changes</li>
-                        <li><strong>git commit</strong>: Captures a snapshot of the currently staged changes. Usage: <code>git commit -m "Descriptive message"</code></li>
-                        <li><strong>git pull</strong>: Fetches changes from a remote repository and merges them into your current branch. Usage: <code>git pull origin [branch-name]</code></li>
-                        <li><strong>git push</strong>: Uploads your commits to a remote repository. Usage: <code>git push origin [branch-name]</code></li>
-                    </ol>
-                    <p>Understanding these commands gives you a solid foundation for version control. As you become more comfortable with Git, you can explore more advanced features like branching strategies, rebasing, and resolving merge conflicts.</p>
-                    <p>Pro tip: Create meaningful commit messages to make it easier for you and your teammates to understand the history of changes in your project.</p>
-                </div>
-                <a href="javascript:void(0);" class="blog-read-more" onclick="toggleBlogContent(this)">Read More</a>
-            </div>
-            
-            <div class="blog-post">
-                <div class="blog-title">Android Studio: Building Your First Mobile App</div>
-                <div class="blog-excerpt">
-                    Android Studio offers a comprehensive environment for Android app development. In this guide, I walk through the steps to create your first Android application.
-                </div>
-                <div class="blog-full-content">
-                    <p>Android Studio is the official Integrated Development Environment (IDE) for Android app development. Here's how to get started:</p>
-                    
-                    <h4>Setting Up Your Development Environment</h4>
-                    <ol>
-                        <li><strong>Install Android Studio</strong>: Download and install from the official website. The installer includes the Android SDK, emulator, and other essential tools.</li>
-                        <li><strong>Create a New Project</strong>: Use the startup wizard to create a new project. Select a template that fits your needs (Empty Activity is good for beginners).</li>
-                        <li><strong>Configure Your Project</strong>: Set your app name, package name, save location, language (Java or Kotlin), and minimum API level.</li>
-                    </ol>
-                    
-                    <h4>Project Structure</h4>
-                    <p>Understanding the key components of an Android app project:</p>
-                    <ul>
-                        <li><strong>Manifest</strong>: The AndroidManifest.xml file contains essential information about your app.</li>
-                        <li><strong>Java/Kotlin</strong>: Contains your app's logic files.</li>
-                        <li><strong>Res</strong>: Resources like layouts (XML), strings, images, and UI elements.</li>
-                        <li><strong>Gradle Scripts</strong>: Build configuration files that manage dependencies and build settings.</li>
-                    </ul>
-                    
-                    <p>The Android ecosystem is constantly evolving, with new libraries, frameworks, and best practices emerging regularly. Staying up-to-date with the latest developments is crucial for building modern, efficient, and user-friendly mobile applications.</p>
-                </div>
-                <a href="javascript:void(0);" class="blog-read-more" onclick="toggleBlogContent(this)">Read More</a>
-            </div>
-            
-            <div class="blog-post">
-                <div class="blog-title">Cloud Computing: AWS vs Azure vs GCP</div>
-                <div class="blog-excerpt">
-                    A comparison of the top three cloud platforms - Amazon Web Services, Microsoft Azure, and Google Cloud Platform, to help you choose the right one for your projects.
-                </div>
-                <div class="blog-full-content">
-                    <p>Choosing the right cloud platform can significantly impact your project's success. Here's a comparison of the three major players:</p>
-                    
-                    <h4>Amazon Web Services (AWS)</h4>
-                    <p><strong>Strengths</strong>: Largest market share, most mature, widest range of services, extensive global infrastructure.</p>
-                    <p><strong>Popular Services</strong>: EC2 (compute), S3 (storage), RDS (database), Lambda (serverless).</p>
-                    <p><strong>Best For</strong>: Companies of all sizes, especially those needing a wide variety of services and established reliability.</p>
-                    
-                    <h4>Microsoft Azure</h4>
-                    <p><strong>Strengths</strong>: Strong enterprise integration, especially with Microsoft products, hybrid cloud solutions.</p>
-                    <p><strong>Popular Services</strong>: Azure Virtual Machines, Azure Storage, Azure SQL Database, Azure Functions.</p>
-                    <p><strong>Best For</strong>: Organizations already using Microsoft technologies, hybrid cloud deployments.</p>
-                    
-                    <h4>Google Cloud Platform (GCP)</h4>
-                    <p><strong>Strengths</strong>: Data analytics, machine learning capabilities, competitive pricing model.</p>
-                    <p><strong>Popular Services</strong>: Compute Engine, Cloud Storage, BigQuery, AI and ML tools.</p>
-                    <p><strong>Best For</strong>: Organizations focused on data analytics, machine learning, or with specific needs in containers and Kubernetes.</p>
-                    
-                    <p>When selecting a cloud provider, consider factors such as your specific needs, existing infrastructure, budget constraints, and technical expertise. Many organizations use multiple cloud providers (multi-cloud strategy) to leverage the strengths of each platform.</p>
-                </div>
-                <a href="javascript:void(0);" class="blog-read-more" onclick="toggleBlogContent(this)">Read More</a>
-            </div>
-            
-            <div class="blog-post">
-                <div class="blog-title">Responsive Web Design: Best Practices for 2023</div>
-                <div class="blog-excerpt">
-                    With the diverse range of devices used to access websites today, responsive design is more important than ever. Here are the latest techniques for building adaptable web experiences.
-                </div>
-                <div class="blog-full-content">
-                    <p>Responsive web design ensures your website looks and functions well on all devices, from desktop computers to smartphones. Here are the current best practices:</p>
-                    
-                    <h4>Core Principles</h4>
-                    <ul>
-                        <li><strong>Mobile-First Approach</strong>: Design for mobile devices first, then enhance for larger screens.</li>
-                        <li><strong>Fluid Grids</strong>: Use relative units (%, rem, em) instead of fixed pixel values.</li>
-                        <li><strong>Flexible Images</strong>: Ensure images scale proportionally and consider different resolutions.</li>
-                        <li><strong>Media Queries</strong>: Apply different styles based on device characteristics.</li>
-                    </ul>
-                    
-                    <h4>Modern Techniques</h4>
-                    <ul>
-                        <li><strong>CSS Grid & Flexbox</strong>: Powerful layout tools that simplify responsive designs.</li>
-                        <li><strong>CSS Custom Properties</strong>: Use variables to maintain consistency across breakpoints.</li>
-                        <li><strong>Container Queries</strong>: Style elements based on their parent container's size, not just viewport size.</li>
-                        <li><strong>Responsive Typography</strong>: Implement fluid typography that scales smoothly between screen sizes.</li>
-                    </ul>
-                    
-                    <p>Testing is crucial - always check your designs on actual devices or using browser developer tools that simulate different screen sizes. Performance optimization is also essential for responsive sites, as mobile users often have slower connections.</p>
-                </div>
-                <a href="javascript:void(0);" class="blog-read-more" onclick="toggleBlogContent(this)">Read More</a>
-            </div>
-        </div>
-    </section>
-    
-    <script>
-        // Initialize all blog content elements when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            const blogContents = document.querySelectorAll('.blog-full-content');
-            blogContents.forEach(content => {
-                content.style.display = 'none';
-            });
-        });
-
-        function toggleBlogContent(element) {
-            const blogPost = element.parentNode;
-            const fullContent = blogPost.querySelector('.blog-full-content');
-            
-            if (fullContent.style.display === 'none') {
-                fullContent.style.display = 'block';
-                element.textContent = 'Show Less';
-            } else {
-                fullContent.style.display = 'none';
-                element.textContent = 'Read More';
-            }
-        }
-    </script>
-      <section id="contact-section" class="contact glass">
+      
+    <section id="contact-section" class="contact glass">
         <div class="section-title">Contact</div>
         <p>Let's connect! Reach me at <a href="mailto:havindunimadith7@gmail.com">havindunimadith7@gmail.com</a></p>
         
@@ -310,7 +104,8 @@
             <a href="https://www.linkedin.com/in/havindu-nimadith-065414310/" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
             <a href="https://github.com/NIMADITH-LMH" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
             <a href="https://www.instagram.com/havinduuu/profilecard/" target="_blank" rel="noopener" title="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://web.facebook.com/havinduuu?mibextid=ZbWKwL&_rdc=1&_rdr" target="_blank" rel="noopener" title="Facebook"><i class="fab fa-facebook"></i></a>        </div>
+            <a href="https://web.facebook.com/havinduuu?mibextid=ZbWKwL&_rdc=1&_rdr" target="_blank" rel="noopener" title="Facebook"><i class="fab fa-facebook"></i></a>
+        </div>
     </section>
 
     <script>
@@ -324,7 +119,7 @@
             const message = document.getElementById('message').value;
             
             // Create mailto URL
-            const mailtoLink = `mailto:havindunimadith7@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+            const mailtoLink = `mailto:havindunimadith7@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("Name: " + name + "\nEmail: " + email + "\n\nMessage:\n" + message)}`;
             
             // Open default email client
             window.location.href = mailtoLink;
@@ -335,5 +130,15 @@
             return false;
         }
     </script>
+    
+    <footer class="footer glass">
+        <p>&copy; 2025 Nimadith LMH. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="https://www.linkedin.com/in/havindu-nimadith-065414310/" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/NIMADITH-LMH" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.instagram.com/havinduuu/profilecard/" target="_blank" rel="noopener" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://web.facebook.com/havinduuu?mibextid=ZbWKwL&_rdc=1&_rdr" target="_blank" rel="noopener" title="Facebook"><i class="fab fa-facebook"></i></a>
+        </div>
+    </footer>
 </body>
 </html>

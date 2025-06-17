@@ -582,6 +582,41 @@ header p {
         width: 60px;
         font-size: 0.85rem;
     }
+    
+    header {
+        min-height: 50vh;
+        padding: 30px 15px 0 15px;
+    }
+    
+    .profile-img {
+        width: 140px;
+        height: 140px;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    .tagline {
+        font-size: 1.1rem;
+    }
+    
+    header p {
+        font-size: 0.95rem;
+        padding: 0 10px;
+    }
+    
+    .header-buttons {
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+        max-width: 250px;
+    }
+    
+    .cv-button, .contact-button {
+        width: 100%;
+        justify-content: center;
+    }
 }
 
 @media (max-width: 600px) {
@@ -619,215 +654,30 @@ header p {
     }
 }
 
+@media (max-width: 480px) {
+    header {
+        min-height: 45vh;
+        padding: 25px 10px 0 10px;
+    }
+    
+    .profile-img {
+        width: 120px;
+        height: 120px;
+        border-width: 3px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+        letter-spacing: 1px;
+    }
+    
+    .tagline {
+        font-size: 1rem;
+        padding: 0 5px;
+    }
+}
+
 /* Experience & Education Timeline */
-.timeline {
-    position: relative;
-    max-width: 800px;
-    margin: 30px auto;
-    padding: 20px 0;
-}
-
-.timeline::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 120px;
-    width: 2px;
-    background: var(--gold);
-}
-
-.timeline-item {
-    position: relative;
-    margin-bottom: 40px;
-    padding-left: 150px;
-}
-
-.timeline-dot {
-    position: absolute;
-    left: 114px;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: var(--gold);
-    box-shadow: 0 0 0 4px var(--navy);
-}
-
-.timeline-date {
-    position: absolute;
-    left: 0;
-    width: 100px;
-    text-align: right;
-    color: var(--gold);
-    font-weight: 600;
-    font-size: 0.95rem;
-}
-
-.timeline-content {
-    background: var(--charcoal);
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    border-left: 3px solid var(--gold);
-}
-
-.timeline-content h3 {
-    margin-top: 0;
-    color: var(--gold);
-    font-size: 1.2rem;
-}
-
-.timeline-content p {
-    margin: 10px 0 0;
-    color: var(--off-white);
-    line-height: 1.5;
-}
-
-/* Testimonials */
-.testimonials-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
-    margin-top: 30px;
-}
-
-.testimonial-card {
-    background: var(--charcoal);
-    border-radius: 6px;
-    padding: 25px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    border-top: 3px solid var(--gold);
-    position: relative;
-}
-
-.testimonial-card::before {
-    content: "\201C";
-    position: absolute;
-    top: 10px;
-    left: 15px;
-    font-size: 60px;
-    color: rgba(240, 165, 0, 0.2);
-    font-family: serif;
-    line-height: 1;
-}
-
-.testimonial-content {
-    font-style: italic;
-    line-height: 1.6;
-    color: var(--off-white);
-    margin-bottom: 20px;
-    position: relative;
-    z-index: 1;
-}
-
-.testimonial-author {
-    display: flex;
-    flex-direction: column;
-    border-top: 1px solid rgba(240, 165, 0, 0.2);
-    padding-top: 15px;
-}
-
-.testimonial-name {
-    font-weight: 700;
-    color: var(--gold);
-    font-size: 1.1rem;
-}
-
-.testimonial-position {
-    color: var(--off-white);
-    font-size: 0.9rem;
-    margin-top: 3px;
-}
-
-/* Blog/Tech Insights */
-.blog-posts {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
-    margin-top: 30px;
-}
-
-.blog-post {
-    background: var(--charcoal);
-    border-radius: 6px;
-    padding: 25px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    position: relative;
-    transition: transform 0.3s, box-shadow 0.3s;
-    border-bottom: 3px solid var(--gold);
-}
-
-.blog-post:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-}
-
-.blog-title {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--gold);
-    margin-bottom: 10px;
-    line-height: 1.4;
-}
-
-.blog-date {
-    font-size: 0.85rem;
-    color: var(--off-white);
-    opacity: 0.8;
-    margin-bottom: 15px;
-}
-
-.blog-excerpt {
-    color: var(--off-white);
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-.blog-read-more {
-    display: inline-block;
-    color: var(--gold);
-    font-weight: 600;
-    text-decoration: none;
-    position: relative;
-}
-
-.blog-read-more::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: var(--gold);
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.3s ease;
-}
-
-.blog-read-more:hover::after {
-    transform: scaleX(1);
-    transform-origin: left;
-}
-
-/* Hide blog full content by default */
-.blog-full-content {
-    display: none;
-}
-
-/* Experience & Education */
-.experience, .testimonials, .blog {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 32px 24px;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.experience:hover, .testimonials:hover, .blog:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 40px 0 rgba(240, 165, 0, 0.4);
-    border: 1px solid rgba(240, 165, 0, 0.2);
-}
-
 .timeline {
     position: relative;
     max-width: 800px;
@@ -1151,5 +1001,66 @@ header p {
     .send-button {
         width: 100%;
         justify-content: center;
+    }
+}
+
+/* Improved header responsiveness */
+@media (max-width: 768px) {
+    header {
+        min-height: 50vh;
+        padding: 30px 15px 0 15px;
+    }
+    
+    .profile-img {
+        width: 140px;
+        height: 140px;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    .tagline {
+        font-size: 1.1rem;
+    }
+    
+    header p {
+        font-size: 0.95rem;
+        padding: 0 10px;
+    }
+    
+    .header-buttons {
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+        max-width: 250px;
+    }
+    
+    .cv-button, .contact-button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        min-height: 45vh;
+        padding: 25px 10px 0 10px;
+    }
+    
+    .profile-img {
+        width: 120px;
+        height: 120px;
+        border-width: 3px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+        letter-spacing: 1px;
+    }
+    
+    .tagline {
+        font-size: 1rem;
+        padding: 0 5px;
     }
 }
