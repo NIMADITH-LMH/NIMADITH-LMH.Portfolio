@@ -29,44 +29,6 @@ This portfolio website is built with:
 - Font Awesome (for icons)
 - Google Fonts
 
-## Projects Featured
-
-My portfolio showcases several projects including:
-
-1. Online Computer Parts Management System (Java)
-2. Finance Tracker App
-3. Fashion Pulse (MERN Stack)
-4. Music Player (Electron.js)
-5. Scientific Calculator
-6. Noughts and Crosses Mobile Game
-7. Wildlife Safari Management System
-
-## Skills Highlighted
-
-Some of the technologies and skills featured:
-- JavaScript, React, Node.js
-- PHP, Java, Python
-- C#, .NET
-- HTML5, CSS
-- AWS, Azure
-- Flutter, Kotlin, Android
-- MySQL, MongoDB, Firebase, Oracle
-- Docker
-
-## Setup and Deployment
-
-This website is deployed on GitHub Pages. To run it locally:
-
-1. Clone this repository:
-   ```
-   git clone https://github.com/NIMADITH-LMH/NIMADITH-LMH.github.io.git
-   ```
-2. Open `index.html` in your browser
-
-To make changes:
-1. Modify the HTML, CSS, or JavaScript files
-2. Commit and push your changes to GitHub
-3. GitHub Pages will automatically rebuild and deploy your site
 
 ## Contact Me
 
@@ -76,6 +38,4 @@ Feel free to reach out:
 - GitHub: [NIMADITH-LMH](https://github.com/NIMADITH-LMH)
 - Instagram: [@havinduuu](https://www.instagram.com/havinduuu/profilecard/)
 
-## License
 
-This project is open source and available under the [MIT License](LICENSE).
