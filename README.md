@@ -2,7 +2,7 @@
 
 Welcome to my personal portfolio repository! This repository contains the source code for my portfolio website hosted on GitHub Pages.
 
-🔗 **Live Site**: [NIMADITH-LMH.github.io](https://nimadith-lmh.github.io/index.html)
+🔗 **Live Site**: [NIMADITH-LMH.github.io](https://nimadith-lmh.github.io/NIMADITH-LMH.Portfolio/)
 
 ## About Me
 
