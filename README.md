@@ -35,7 +35,6 @@ This portfolio website is built with:
 Feel free to reach out:
 - Email: [havindunimadith7@gmail.com](mailto:havindunimadith7@gmail.com)
 - LinkedIn: [Havindu Nimadith](https://www.linkedin.com/in/havindu-nimadith-065414310/)
-- GitHub: [NIMADITH-LMH](https://github.com/NIMADITH-LMH)
 - Instagram: [@havinduuu](https://www.instagram.com/havinduuu/profilecard/)
 
 
