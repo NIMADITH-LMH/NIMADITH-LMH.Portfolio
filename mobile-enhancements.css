@@ -1,0 +1,140 @@
+/* Mobile enhancements for better touch interaction and display */
+
+/* Global touch improvements */
+@media (max-width: 768px) {
+    /* Increase spacing for touch targets */
+    button, 
+    a,
+    .nav-item,
+    .pdf-link,
+    .cv-button, 
+    .contact-button {
+        padding: 12px 15px;
+    }
+
+    /* Improve touch feedback */
+    a:active, button:active {
+        transform: scale(0.98);
+        transition: transform 0.1s ease;
+    }
+    
+    /* Fix content overflow issues */
+    img, video {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* Improve text readability */
+    p, li {
+        line-height: 1.5;
+    }
+    
+    /* Adjust container padding */
+    .container, section {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+/* Small mobile screens */
+@media (max-width: 480px) {
+    /* Further spacing adjustments */
+    .container, section {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    /* Adjust card layouts */
+    .pdf-gallery {
+        gap: 15px;
+    }
+    
+    /* Better touch area for navigation */
+    .main-nav a {
+        padding: 12px 8px;
+        margin: 0 2px;
+    }
+    
+    /* Adjust header components */
+    .profile-img {
+        margin-bottom: 15px;
+    }
+    
+    h1 {
+        margin-bottom: 8px;
+    }
+    
+    /* Ensure content is centered properly */
+    .header-content {
+        text-align: center;
+    }
+}
+
+/* Fix potential horizontal scroll on mobile */
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+/* Better scrolling experience */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Fix for iOS Safari 100vh issue */
+@supports (-webkit-touch-callout: none) {
+    .full-height {
+        height: -webkit-fill-available;
+    }
+}
+
+/* Improved touch feedback for cards */
+@media (hover: none) {
+    .glass:active {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 15px rgba(240, 165, 0, 0.15);
+    }
+    
+    /* Better feedback for PDF cards */
+    .pdf-card:active {
+        transform: translateY(-3px) scale(0.99);
+    }
+}
+
+/* Touch active state for elements */
+.touch-active {
+    transform: scale(0.98) !important;
+    transition: transform 0.1s ease !important;
+    opacity: 0.9 !important;
+}
+
+/* No touch delay class */
+.no-touch-delay {
+    touch-action: manipulation;
+}
+
+/* Make sure vh units work correctly on iOS */
+.full-height {
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+}
+
+/* Enhance tap highlight for mobile */
+.touch-device a, 
+.touch-device button, 
+.touch-device .pdf-card, 
+.touch-device .glass {
+    -webkit-tap-highlight-color: rgba(240, 165, 0, 0.2);
+}
+
+/* Ensure proper spacing around interactive elements */
+@media (max-width: 768px) {
+    a, button, input[type="button"], input[type="submit"] {
+        margin: 5px;
+    }
+    
+    /* Ensure proper line height for buttons */
+    button, .cv-button, .contact-button, .send-button {
+        line-height: 1.2;
+    }
+}

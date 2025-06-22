@@ -272,26 +272,7 @@
     }
 }
 
-/* Page title animations */
-.experience-page-title {
-    position: relative;
-}
-
-.experience-page-title::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 3px;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: var(--gold);
-    transition: width 0.5s ease;
-}
-
-.experience-page-title:hover::after {
-    width: 80%;
-}
+/* Page title animations moved to page-title-animations.css */
 
 .page-subtitle {
     color: var(--off-white);

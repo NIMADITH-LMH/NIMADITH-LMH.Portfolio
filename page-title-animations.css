@@ -1,0 +1,31 @@
+/* Page title animations */
+.page-title, .experience-page-title, .section-title {
+    position: relative;
+    color: var(--gold);
+    display: block;
+    text-align: center;
+    padding-bottom: 5px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.8rem;
+    font-weight: bold;
+    width: fit-content;
+}
+
+.page-title::after, .experience-page-title::after, .section-title::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--gold);
+    transition: width 0.5s ease;
+}
+
+.page-title:hover::after, .experience-page-title:hover::after, .section-title:hover::after {
+    width: 80%;
+}

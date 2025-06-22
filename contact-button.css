@@ -2,7 +2,7 @@
 .contact-button {
     display: inline-flex;
     align-items: center;
-    padding: 12px 25px;
+    padding: 8px 25px;
     background: var(--navy-light);
     color: var(--white);
     border-radius: 4px;
@@ -56,6 +56,10 @@
     min-width: 160px;
     text-align: center;
     justify-content: center;
+    width: auto;
+    height: 38px;
+    white-space: nowrap;
+    font-size: 1rem;
 }
 
 /* Add smooth scrolling for the page */
