@@ -2,9 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#0d1b2a">
     <title>Nimadith LMH | Portfolio</title>
     <link rel="icon" type="image/jpeg" href="tab_preview_img.jpg">
+    <link rel="apple-touch-icon" href="tab_preview_img.jpg">
+    <link rel="manifest" href="manifest.json">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="navigation.css">
@@ -137,12 +143,212 @@
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
+            /* Force navigation to be visible and properly positioned */
+            .main-nav {
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                z-index: 1000 !important;
+                background: rgba(13, 27, 42, 0.95) !important;
+                -webkit-backdrop-filter: blur(10px) !important;
+                backdrop-filter: blur(10px) !important;
+                padding: 10px 0 !important;
+                margin: 0 !important;
+                border-bottom: 1px solid rgba(240, 165, 0, 0.1) !important;
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                width: 100% !important;
+            }
+            
+            .main-nav ul {
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: wrap !important;
+                justify-content: center !important;
+                align-items: center !important;
+                gap: 5px !important;
+                padding: 0 10px !important;
+                margin: 0 !important;
+                list-style: none !important;
+            }
+            
+            .main-nav li {
+                display: block !important;
+                flex: none !important;
+            }
+            
+            .main-nav a {
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                padding: 8px 12px !important;
+                font-size: 0.85rem !important;
+                white-space: nowrap !important;
+                min-height: 44px !important;
+                min-width: 44px !important;
+                border-radius: 20px !important;
+                text-decoration: none !important;
+                color: var(--off-white) !important;
+                transition: all 0.3s ease !important;
+                background: rgba(26, 45, 66, 0.3) !important;
+                margin: 2px !important;
+            }
+            
+            .main-nav .contact-nav-btn {
+                background: linear-gradient(135deg, var(--gold), #ffa500) !important;
+                color: var(--navy) !important;
+                font-weight: 600 !important;
+            }
+            
             .hover-effect:hover {
                 transform: translateY(-4px) scale(1.01);
             }
             
             .main-nav a:hover {
                 transform: scale(1.05) !important;
+                color: var(--gold) !important;
+            }
+            
+            /* Mobile-specific improvements */
+            .section {
+                scroll-margin-top: 80px;
+            }
+            
+            /* Improved touch targets */
+            .nav-link, .contact-nav-btn {
+                min-height: 44px;
+                min-width: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            /* Enhanced mobile form */
+            .form-group input:focus,
+            .form-group textarea:focus {
+                transform: scale(1.02);
+                box-shadow: 0 0 0 3px rgba(240, 165, 0, 0.2);
+            }
+            
+            /* Mobile-optimized animations */
+            .card, .project-card, .pdf-card {
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+            }
+            
+            .card:hover, .card:focus,
+            .project-card:hover, .project-card:focus,
+            .pdf-card:hover, .pdf-card:focus {
+                transform: translateY(-4px) scale(1.01);
+                box-shadow: 0 8px 25px rgba(240, 165, 0, 0.2);
+            }
+            
+            /* Swipe indicator */
+            .section::after {
+                content: '';
+                position: fixed;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 40px;
+                height: 4px;
+                background: linear-gradient(90deg, transparent, var(--gold), transparent);
+                border-radius: 2px;
+                opacity: 0.6;
+                animation: swipeHint 2s ease-in-out infinite;
+            }
+            
+            @keyframes swipeHint {
+                0%, 100% { opacity: 0.3; }
+                50% { opacity: 0.8; }
+            }
+            
+            /* Hide swipe indicator on very small screens */
+            @media (max-height: 600px) {
+                .section::after {
+                    display: none;
+                }
+            }
+        }
+        
+        /* Very small screens - ensure navigation is always visible */
+        @media (max-width: 480px) {
+            body {
+                padding-top: 70px !important;
+            }
+            
+            .main-nav {
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                z-index: 1000 !important;
+                background: rgba(13, 27, 42, 0.98) !important;
+                -webkit-backdrop-filter: blur(15px) !important;
+                backdrop-filter: blur(15px) !important;
+                padding: 8px 0 !important;
+                margin: 0 !important;
+                border-bottom: 1px solid rgba(240, 165, 0, 0.2) !important;
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                width: 100% !important;
+                height: auto !important;
+            }
+            
+            .main-nav ul {
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: wrap !important;
+                justify-content: center !important;
+                align-items: center !important;
+                gap: 3px !important;
+                padding: 0 5px !important;
+                margin: 0 !important;
+                list-style: none !important;
+            }
+            
+            .main-nav a {
+                padding: 6px 8px !important;
+                font-size: 0.75rem !important;
+                min-height: 40px !important;
+                min-width: 40px !important;
+                border-radius: 18px !important;
+                margin: 1px !important;
+            }
+            
+            .main-nav a i {
+                margin-right: 3px !important;
+            }
+        }
+        
+        /* Mobile landscape optimizations */
+        @media (orientation: landscape) and (max-height: 500px) {
+            .section {
+                min-height: 100vh;
+                padding: 30px 15px 20px 15px;
+            }
+            
+            body {
+                padding-top: 60px;
+            }
+            
+            .main-nav {
+                padding: 5px 0;
+            }
+            
+            .profile-img {
+                width: 80px;
+                height: 80px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .tagline {
+                font-size: 0.9rem;
             }
         }
 
@@ -768,7 +974,7 @@
             emailjs.init('4SCwt0f4FR-1PteUN'); // You'll get this from EmailJS dashboard
         })();
 
-        // Handle form submission with EmailJS
+        // Enhanced form validation and mobile optimizations
         function handleSubmit(event) {
             event.preventDefault();
             
@@ -776,6 +982,39 @@
             const buttonText = document.getElementById('buttonText');
             const formMessage = document.getElementById('formMessage');
             const form = document.getElementById('messageForm');
+            
+            // Mobile-specific form validation
+            const inputs = form.querySelectorAll('input, textarea');
+            let isValid = true;
+            
+            inputs.forEach(input => {
+                if (input.value.trim() === '') {
+                    input.classList.add('error');
+                    isValid = false;
+                } else {
+                    input.classList.remove('error');
+                }
+            });
+            
+            if (!isValid) {
+                formMessage.textContent = '⚠️ Please fill in all required fields.';
+                formMessage.className = 'form-message error';
+                
+                // Add haptic feedback if available
+                if ('vibrate' in navigator) {
+                    navigator.vibrate([100, 50, 100]);
+                }
+                
+                // Focus first invalid input
+                const firstError = form.querySelector('.error');
+                if (firstError) {
+                    firstError.focus();
+                    if (window.innerWidth < 768) {
+                        firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                }
+                return false;
+            }
             
             // Show loading state
             sendButton.disabled = true;
@@ -794,7 +1033,6 @@
             };
             
             // Send email using EmailJS
-            // Replace 'YOUR_TEMPLATE_ID' with your actual Template ID from EmailJS
             emailjs.send('service_de6dnqx', 'template_7pwjrk8', templateParams)
                 .then(function(response) {
                     console.log('Email sent successfully!', response.status, response.text);
@@ -803,8 +1041,18 @@
                     formMessage.textContent = '✅ Message sent successfully! I\'ll get back to you soon.';
                     formMessage.className = 'form-message success';
                     
+                    // Add success haptic feedback
+                    if ('vibrate' in navigator) {
+                        navigator.vibrate([50, 100, 50]);
+                    }
+                    
                     // Reset form
                     form.reset();
+                    
+                    // Scroll to success message on mobile
+                    if (window.innerWidth < 768) {
+                        formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
                     
                 }, function(error) {
                     console.error('Failed to send email:', error);
@@ -812,6 +1060,11 @@
                     // Show error message with fallback
                     formMessage.innerHTML = '❌ Failed to send message. Please try again or email me directly at <a href="mailto:havindunimadith7@gmail.com">havindunimadith7@gmail.com</a>';
                     formMessage.className = 'form-message error';
+                    
+                    // Add error haptic feedback
+                    if ('vibrate' in navigator) {
+                        navigator.vibrate([200, 100, 200]);
+                    }
                 })
                 .finally(function() {
                     // Reset button state
@@ -844,12 +1097,15 @@
             }
         }
 
-        // Smooth scrolling navigation with active state
+        // Enhanced mobile navigation with smooth scrolling and better mobile UX
         document.addEventListener('DOMContentLoaded', function() {
             const navLinks = document.querySelectorAll('.nav-link');
             const sections = document.querySelectorAll('.section');
-
-            // Handle navigation clicks
+            
+            // Detect mobile device
+            const isMobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            
+            // Handle navigation clicks with enhanced mobile behavior
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -857,10 +1113,36 @@
                     const targetSection = document.getElementById(targetId);
                     
                     if (targetSection) {
-                        targetSection.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
+                        // Close mobile menu if open
+                        const nav = document.querySelector('.main-nav');
+                        if (nav && nav.classList.contains('menu-open')) {
+                            nav.classList.remove('menu-open');
+                            const menuToggle = nav.querySelector('.mobile-menu-toggle');
+                            if (menuToggle) {
+                                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                            }
+                        }
+                        
+                        // Enhanced smooth scroll for mobile
+                        if (isMobile) {
+                            // Add a small delay for mobile menu closing animation
+                            setTimeout(() => {
+                                targetSection.scrollIntoView({
+                                    behavior: 'smooth',
+                                    block: 'start'
+                                });
+                            }, 100);
+                        } else {
+                            targetSection.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                        
+                        // Add haptic feedback for mobile
+                        if ('vibrate' in navigator && isMobile) {
+                            navigator.vibrate(25);
+                        }
                     }
                     
                     // Update active state
@@ -869,12 +1151,18 @@
                 });
             });
 
-            // Update active navigation on scroll
-            window.addEventListener('scroll', function() {
+            // Enhanced scroll-based navigation updates with mobile optimization
+            let ticking = false;
+            
+            function updateActiveNavigation() {
                 let current = '';
+                const scrollPos = window.pageYOffset + 100;
+                
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop;
-                    if (window.pageYOffset >= sectionTop - 100) {
+                    const sectionBottom = sectionTop + section.offsetHeight;
+                    
+                    if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
                         current = section.getAttribute('id');
                     }
                 });
@@ -885,8 +1173,118 @@
                         link.classList.add('active');
                     }
                 });
-            });
+                
+                ticking = false;
+            }
+            
+            function requestTick() {
+                if (!ticking) {
+                    requestAnimationFrame(updateActiveNavigation);
+                    ticking = true;
+                }
+            }
+            
+            // Use throttled scroll listener for better performance
+            window.addEventListener('scroll', requestTick, { passive: true });
+            
+            // Enhanced mobile-specific behaviors
+            if (isMobile) {
+                // Add touch feedback to navigation
+                navLinks.forEach(link => {
+                    link.addEventListener('touchstart', function() {
+                        this.classList.add('touch-active');
+                    }, { passive: true });
+                    
+                    link.addEventListener('touchend', function() {
+                        setTimeout(() => {
+                            this.classList.remove('touch-active');
+                        }, 150);
+                    }, { passive: true });
+                });
+                
+                // Prevent scroll during navigation transitions
+                let isNavigating = false;
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        if (!isNavigating) {
+                            isNavigating = true;
+                            setTimeout(() => {
+                                isNavigating = false;
+                            }, 1000);
+                        }
+                    });
+                });
+                
+                // Add mobile-specific scroll enhancements
+                let lastScrollTime = 0;
+                window.addEventListener('scroll', function() {
+                    const now = Date.now();
+                    if (now - lastScrollTime > 100) { // Throttle scroll events
+                        lastScrollTime = now;
+                        
+                        // Update navigation with mobile-optimized timing
+                        if (!isNavigating) {
+                            requestTick();
+                        }
+                    }
+                }, { passive: true });
+            }
         });
+
+        // Force mobile navigation visibility on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Force navigation visibility on mobile
+            function forceMobileNavVisibility() {
+                const nav = document.querySelector('.main-nav');
+                if (nav && window.innerWidth <= 768) {
+                    nav.style.position = 'fixed';
+                    nav.style.top = '0';
+                    nav.style.left = '0';
+                    nav.style.right = '0';
+                    nav.style.zIndex = '1000';
+                    nav.style.display = 'block';
+                    nav.style.visibility = 'visible';
+                    nav.style.opacity = '1';
+                    nav.style.background = 'rgba(13, 27, 42, 0.95)';
+                    nav.style.backdropFilter = 'blur(10px)';
+                    nav.style.webkitBackdropFilter = 'blur(10px)';
+                    nav.style.borderBottom = '1px solid rgba(240, 165, 0, 0.1)';
+                    nav.style.padding = '10px 0';
+                    nav.style.margin = '0';
+                    nav.style.width = '100%';
+                    
+                    // Ensure body has proper padding
+                    document.body.style.paddingTop = '70px';
+                }
+            }
+            
+            // Apply on load
+            forceMobileNavVisibility();
+            
+            // Apply on resize
+            window.addEventListener('resize', forceMobileNavVisibility);
+        });
+
+        // Debug function to check navigation state (remove in production)
+        function debugNavigationState() {
+            const nav = document.querySelector('.main-nav');
+            if (nav) {
+                console.log('Navigation Debug Info:');
+                console.log('Display:', window.getComputedStyle(nav).display);
+                console.log('Visibility:', window.getComputedStyle(nav).visibility);
+                console.log('Opacity:', window.getComputedStyle(nav).opacity);
+                console.log('Position:', window.getComputedStyle(nav).position);
+                console.log('Z-index:', window.getComputedStyle(nav).zIndex);
+                console.log('Width:', window.getComputedStyle(nav).width);
+                console.log('Height:', window.getComputedStyle(nav).height);
+                console.log('Top:', window.getComputedStyle(nav).top);
+                console.log('Screen Width:', window.innerWidth);
+                console.log('Screen Height:', window.innerHeight);
+            }
+        }
+
+        // Call debug on load (comment out in production)
+        // debugNavigationState();
     </script>
 </body>
 </html>

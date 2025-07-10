@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Navigation Test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: #0d1b2a;
+            color: white;
+            padding-top: 70px;
+        }
+        
+        .test-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(13, 27, 42, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(240, 165, 0, 0.1);
+        }
+        
+        .test-nav ul {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            padding: 0 10px;
+            margin: 0;
+            list-style: none;
+        }
+        
+        .test-nav a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 12px;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            min-height: 44px;
+            min-width: 44px;
+            border-radius: 20px;
+            text-decoration: none;
+            color: white;
+            background: rgba(26, 45, 66, 0.3);
+            margin: 2px;
+            transition: all 0.3s ease;
+        }
+        
+        .test-nav a:hover {
+            transform: scale(1.05);
+            color: #f0a500;
+        }
+        
+        .contact-btn {
+            background: linear-gradient(135deg, #f0a500, #ffa500);
+            color: #0d1b2a;
+            font-weight: 600;
+        }
+        
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(26, 45, 66, 0.3);
+            border-radius: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .test-nav {
+                position: fixed !important;
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
+            
+            .test-nav ul {
+                display: flex !important;
+            }
+            
+            .test-nav a {
+                font-size: 0.8rem !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .test-nav a {
+                padding: 6px 8px !important;
+                font-size: 0.75rem !important;
+                min-height: 40px !important;
+                min-width: 40px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="test-nav">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#certs">Certifications</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#insights">Tech Insights</a></li>
+            <li><a href="#contact" class="contact-btn">Contact Me</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <h1>Mobile Navigation Test</h1>
+        
+        <div class="test-section">
+            <h2>Navigation Test</h2>
+            <p>This is a test to verify that the mobile navigation is working correctly.</p>
+            <p>The navigation should be visible at the top of the screen on all devices.</p>
+        </div>
+        
+        <div class="test-section">
+            <h2>Screen Info</h2>
+            <p>Screen Width: <span id="screenWidth"></span>px</p>
+            <p>Screen Height: <span id="screenHeight"></span>px</p>
+            <p>User Agent: <span id="userAgent"></span></p>
+        </div>
+        
+        <div class="test-section">
+            <h2>Navigation Element Info</h2>
+            <p>Navigation Display: <span id="navDisplay"></span></p>
+            <p>Navigation Visibility: <span id="navVisibility"></span></p>
+            <p>Navigation Position: <span id="navPosition"></span></p>
+            <p>Navigation Z-index: <span id="navZindex"></span></p>
+        </div>
+        
+        <div class="test-section">
+            <h2>Touch Test</h2>
+            <p>Try tapping the navigation links above. They should be responsive and easy to tap.</p>
+        </div>
+    </div>
+
+    <script>
+        function updateScreenInfo() {
+            document.getElementById('screenWidth').textContent = window.innerWidth;
+            document.getElementById('screenHeight').textContent = window.innerHeight;
+            document.getElementById('userAgent').textContent = navigator.userAgent;
+            
+            const nav = document.querySelector('.test-nav');
+            if (nav) {
+                const styles = window.getComputedStyle(nav);
+                document.getElementById('navDisplay').textContent = styles.display;
+                document.getElementById('navVisibility').textContent = styles.visibility;
+                document.getElementById('navPosition').textContent = styles.position;
+                document.getElementById('navZindex').textContent = styles.zIndex;
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', updateScreenInfo);
+        window.addEventListener('resize', updateScreenInfo);
+        
+        // Add touch feedback
+        document.querySelectorAll('.test-nav a').forEach(link => {
+            link.addEventListener('touchstart', function() {
+                this.style.transform = 'scale(0.95)';
+            });
+            
+            link.addEventListener('touchend', function() {
+                this.style.transform = 'scale(1.05)';
+            });
+        });
+    </script>
+</body>
+</html>

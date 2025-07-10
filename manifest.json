@@ -1,0 +1,25 @@
+{
+  "name": "Nimadith LMH Portfolio",
+  "short_name": "Nimadith LMH",
+  "description": "Professional portfolio of Havindu Nimadith - SE undergraduate and IT enthusiast",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d1b2a",
+  "theme_color": "#0d1b2a",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "tab_preview_img.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "tab_preview_img.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ],
+  "categories": ["portfolio", "education", "technology"],
+  "lang": "en-US",
+  "scope": "/"
+}

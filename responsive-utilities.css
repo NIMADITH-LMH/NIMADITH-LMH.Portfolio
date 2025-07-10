@@ -1,4 +1,10 @@
-/* Responsive text adjustments */
+/* COMPREHENSIVE RESPONSIVE UTILITIES FOR MOBILE */
+
+/* Responsive text utilities with fluid scaling */
+.responsive-text-xs {
+    font-size: clamp(0.7rem, 1.8vw, 0.8rem);
+}
+
 .responsive-text-sm {
     font-size: clamp(0.8rem, 2vw, 0.9rem);
 }
@@ -15,7 +21,19 @@
     font-size: clamp(1.5rem, 4vw, 2rem);
 }
 
+.responsive-text-xxl {
+    font-size: clamp(2rem, 5vw, 3rem);
+}
+
 /* Fluid spacing utilities */
+.fluid-margin-xs {
+    margin: clamp(5px, 1vw, 10px);
+}
+
+.fluid-margin-sm {
+    margin: clamp(8px, 1.5vw, 15px);
+}
+
 .fluid-margin-top {
     margin-top: clamp(15px, 3vw, 40px);
 }
@@ -24,30 +42,323 @@
     margin-bottom: clamp(15px, 3vw, 40px);
 }
 
+.fluid-margin-vertical {
+    margin-top: clamp(15px, 3vw, 40px);
+    margin-bottom: clamp(15px, 3vw, 40px);
+}
+
+.fluid-padding-xs {
+    padding: clamp(5px, 1vw, 10px);
+}
+
+.fluid-padding-sm {
+    padding: clamp(8px, 1.5vw, 15px);
+}
+
 .fluid-padding {
     padding: clamp(10px, 2vw, 20px);
 }
 
-/* Mobile accessibility improvements */
+.fluid-padding-lg {
+    padding: clamp(15px, 3vw, 30px);
+}
+
+/* Mobile-specific display utilities */
 @media (max-width: 768px) {
-    /* Increase touch target sizes for better accessibility */
-    .pdf-link, button, a {
-        min-height: 44px;
-        min-width: 44px;
+    .mobile-hidden {
+        display: none !important;
     }
     
-    /* Ensure sufficient spacing between clickable elements */
+    .mobile-only {
+        display: block !important;
+    }
+    
+    .mobile-inline {
+        display: inline !important;
+    }
+    
+    .mobile-flex {
+        display: flex !important;
+    }
+    
+    .mobile-grid {
+        display: grid !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .desktop-hidden {
+        display: none !important;
+    }
+    
+    .mobile-only {
+        display: none !important;
+    }
+}
+
+/* Mobile layout utilities */
+@media (max-width: 768px) {
+    .mobile-center {
+        text-align: center !important;
+    }
+    
+    .mobile-left {
+        text-align: left !important;
+    }
+    
+    .mobile-right {
+        text-align: right !important;
+    }
+    
+    .mobile-full-width {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    .mobile-auto-width {
+        width: auto !important;
+    }
+    
+    .mobile-flex-column {
+        flex-direction: column !important;
+    }
+    
+    .mobile-flex-row {
+        flex-direction: row !important;
+    }
+    
+    .mobile-justify-center {
+        justify-content: center !important;
+    }
+    
+    .mobile-align-center {
+        align-items: center !important;
+    }
+    
+    .mobile-no-margin {
+        margin: 0 !important;
+    }
+    
+    .mobile-no-padding {
+        padding: 0 !important;
+    }
+}
+
+/* Touch target accessibility improvements */
+@media (max-width: 768px) {
+    /* Ensure minimum touch target sizes (44px x 44px) */
+    button,
+    a,
+    .pdf-link,
+    .cv-button,
+    .send-button,
+    .view-project,
+    .nav-link,
+    input[type="button"],
+    input[type="submit"],
+    input[type="reset"] {
+        min-height: 44px;
+        min-width: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+    
+    /* Increase spacing between clickable elements */
     .pdf-gallery {
         gap: clamp(15px, 3vw, 25px);
     }
     
+    .projects-list {
+        gap: clamp(20px, 4vw, 30px);
+    }
+    
+    .skills-list {
+        gap: clamp(10px, 2vw, 15px);
+    }
+    
     /* Improve text readability on small screens */
-    .pdf-card {
+    .pdf-card,
+    .project-card,
+    .card {
+        line-height: 1.5;
+    }
+    
+    /* Ensure sufficient contrast and visibility */
+    .pdf-title,
+    .project-title,
+    .section-title {
+        color: var(--gold);
+        font-weight: 600;
+    }
+    
+    /* Better spacing for navigation */
+    .main-nav ul {
+        gap: clamp(5px, 1vw, 10px);
+    }
+    
+    .main-nav a {
+        padding: clamp(8px, 2vw, 12px) clamp(10px, 2.5vw, 15px);
+        border-radius: clamp(15px, 3vw, 25px);
+    }
+}
+
+/* Small mobile screens (phones in portrait) */
+@media (max-width: 480px) {
+    .mobile-sm-hidden {
+        display: none !important;
+    }
+    
+    .mobile-sm-only {
+        display: block !important;
+    }
+    
+    .mobile-sm-full-width {
+        width: 100% !important;
+    }
+    
+    .mobile-sm-center {
+        text-align: center !important;
+    }
+    
+    /* Tighter spacing for very small screens */
+    .fluid-padding-tight {
+        padding: clamp(5px, 1.5vw, 10px);
+    }
+    
+    .fluid-margin-tight {
+        margin: clamp(5px, 1.5vw, 10px);
+    }
+}
+
+/* Landscape mobile orientation */
+@media (max-width: 768px) and (orientation: landscape) {
+    .landscape-hidden {
+        display: none !important;
+    }
+    
+    .landscape-only {
+        display: block !important;
+    }
+    
+    /* Reduce vertical spacing in landscape */
+    .section {
+        padding-top: clamp(20px, 3vh, 40px);
+        padding-bottom: clamp(20px, 3vh, 40px);
+    }
+    
+    .card {
+        margin-bottom: clamp(15px, 2vh, 25px);
+    }
+}
+
+/* High DPI / Retina display optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .retina-only {
+        display: block !important;
+    }
+    
+    /* Optimize images for retina displays */
+    img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    html {
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Dark mode preference support */
+@media (prefers-color-scheme: dark) {
+    .light-mode-only {
+        display: none !important;
+    }
+    
+    .dark-mode-only {
+        display: block !important;
+    }
+}
+
+/* Container queries for modern browsers */
+@supports (container-type: inline-size) {
+    .container-responsive {
+        container-type: inline-size;
+    }
+    
+    @container (max-width: 500px) {
+        .container-sm-hidden {
+            display: none !important;
+        }
+        
+        .container-sm-only {
+            display: block !important;
+        }
+    }
+}
+
+/* Focus management for mobile */
+@media (max-width: 768px) {
+    /* Enhanced focus styles for touch navigation */
+    button:focus,
+    a:focus,
+    input:focus,
+    textarea:focus,
+    select:focus {
+        outline: 3px solid var(--gold);
+        outline-offset: 2px;
+        border-radius: 4px;
+    }
+    
+    /* Skip link for accessibility */
+    .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 6px;
+        background: var(--gold);
+        color: var(--navy-dark);
+        padding: 8px;
+        text-decoration: none;
+        border-radius: 4px;
+        z-index: 9999;
+    }
+    
+    .skip-link:focus {
+        top: 6px;
+    }
+}
+
+/* Print styles for mobile */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    
+    .print-only {
+        display: block !important;
+    }
+    
+    /* Optimize for mobile printing */
+    body {
+        font-size: 12pt;
         line-height: 1.4;
     }
     
-    /* Ensure sufficient contrast */
-    .pdf-title {
+    .section {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+}
         text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
     }
 }
