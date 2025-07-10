@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>    <meta charset="UTF-8">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nimadith LMH | Portfolio</title>
     <link rel="icon" type="image/jpeg" href="tab_preview_img.jpg">
@@ -9,68 +10,706 @@
     <link rel="stylesheet" href="navigation.css">
     <link rel="stylesheet" href="footer.css">
     <link rel="stylesheet" href="contact.css">
-    <link rel="stylesheet" href="glass-glow-effect.css">
-    <link rel="stylesheet" href="responsive-utilities.css">    <link rel="stylesheet" href="contact-button.css">    <link rel="stylesheet" href="profile-animations.css">
+
+    <link rel="stylesheet" href="responsive-utilities.css">
+    <link rel="stylesheet" href="contact-button.css">
+    <link rel="stylesheet" href="profile-animations.css">
     <link rel="stylesheet" href="mobile-enhancements.css">
     <link rel="stylesheet" href="page-title-animations.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">    <script src="contact-scroll.js" defer></script>
+    <link rel="stylesheet" href="projects-fix.css">
+    <link rel="stylesheet" href="certifications-fix.css">
+    <link rel="stylesheet" href="experience-page.css">
+    <link rel="stylesheet" href="experience-animations.css">
+    <link rel="stylesheet" href="pdf-gallery.css">
+    <link rel="stylesheet" href="timeline.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Simple Hover Animations - Override complex animations -->
+    <link rel="stylesheet" href="simple-hover-animations.css">
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="contact-scroll.js" defer></script>
     <script src="navigation.js" defer></script>
-    <script src="glass-glow-effect.js" defer></script>
+
     <script src="mobile-touch-optimization.js" defer></script>
+    <script src="experience-animations.js" defer></script>
+    <script src="pdf-gallery.js" defer></script>
+    <script src="certificate-preview.js" defer></script>
+    <script src="simple-animations.js" defer></script>
+    <style>
+        /* Simple, Beautiful Hover Animations Override */
+        .hover-effect {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .hover-effect:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(240, 165, 0, 0.3);
+        }
+
+        /* Ensure navigation animations are simple and beautiful */
+        .main-nav a {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            position: relative !important;
+        }
+
+        .main-nav a::before {
+            display: none !important;
+        }
+
+        .main-nav a:hover, .main-nav a.active {
+            color: var(--gold) !important;
+            transform: scale(1.1) !important;
+            text-shadow: 0 0 10px rgba(240, 165, 0, 0.5);
+        }
+
+        .main-nav .contact-nav-btn::before {
+            display: none !important;
+        }
+
+        .main-nav .contact-nav-btn:hover {
+            background: linear-gradient(135deg, #ffa500, var(--gold)) !important;
+            transform: scale(1.1) translateY(-2px) !important;
+            box-shadow: 0 8px 25px rgba(240, 165, 0, 0.4) !important;
+        }
+
+        /* Override complex project card animations */
+        .project-card:after {
+            display: none !important;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px) !important;
+            box-shadow: 0 15px 35px rgba(240, 165, 0, 0.2) !important;
+        }
+
+        /* Simple skill hover */
+        .skill:before {
+            display: none !important;
+        }
+
+        .skill:hover {
+            transform: translateY(-5px) !important;
+            box-shadow: 0 8px 20px rgba(240, 165, 0, 0.2) !important;
+        }
+
+        /* Override button complex animations */
+        .cv-button:before, .contact-button:before {
+            display: none !important;
+        }
+
+        .cv-button:hover, .contact-button:hover {
+            transform: translateY(-3px) !important;
+            box-shadow: 0 8px 20px rgba(240, 165, 0, 0.3) !important;
+        }
+
+        /* Simple section title animation */
+        .section-title, .page-title {
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .section-title::after, .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .section-title:hover::after, .page-title:hover::after {
+            width: 100%;
+        }
+
+        /* Smooth fade-in animation for content */
+        @keyframes simpleFadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: simpleFadeIn 0.6s ease-out;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hover-effect:hover {
+                transform: translateY(-4px) scale(1.01);
+            }
+            
+            .main-nav a:hover {
+                transform: scale(1.05) !important;
+            }
+        }
+
+        /* Single page navigation styles */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .section {
+            min-height: 100vh;
+            padding: 80px 20px 40px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .section:first-child {
+            padding-top: 0;
+        }
+        
+        /* Navigation improvements for single page */
+        .main-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(13, 27, 42, 0.95);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(240, 165, 0, 0.1);
+        }
+        
+        .main-nav ul {
+            margin: 0;
+        }
+        
+        /* Offset for fixed navigation */
+        body {
+            padding-top: 80px;
+        }
+        
+        header {
+            padding-top: 40px;
+        }
+        
+        /* Section spacing adjustments */
+        .page-title {
+            margin-top: 0;
+        }
+        
+        /* Smooth scroll offset for navigation links */
+        .section::before {
+            content: "";
+            display: block;
+            height: 80px;
+            margin-top: -80px;
+            visibility: hidden;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <img src="myImage.jpg" alt="Profile" class="profile-img">
-        <h1>NIMADITH LMH</h1>
-        <div class="tagline">Innovative IT Enthusiast | Building Solutions for the Future</div>
-        <p>Undergraduate IT enthusiast passionate about building efficient and scalable solutions for real-world problems.</p>
-        <div class="header-buttons">
-            <a href="NIMADITH LMH.pdf" class="cv-button" download><i class="fas fa-file-pdf"></i> Download CV</a>
-            <a href="#contact-section" class="contact-button"><i class="fas fa-envelope"></i> Contact Me</a>
-        </div>
-        <nav class="main-nav">
-            <ul>
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="certifications.html">Certifications</a></li>
-                <li><a href="experience.html">Experience & Education</a></li>
-                <li><a href="tech-insights.html">Tech Insights</a></li>
-            </ul>
-        </nav>
-    </header>
+    <!-- Fixed Navigation -->
+    <nav class="main-nav">
+        <ul>
+            <li><a href="#home" class="nav-link active">Home</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#certifications" class="nav-link">Certifications</a></li>
+            <li><a href="#experience" class="nav-link">Experience & Education</a></li>
+            <li><a href="#tech-insights" class="nav-link">Tech Insights</a></li>
+            <li><a href="#contact-section" class="nav-link contact-nav-btn"><i class="fas fa-envelope"></i> Contact Me</a></li>
+        </ul>
+    </nav>
 
-    <section class="about glass">
-        <div class="section-title">About Me</div>
-        <p>Hi, I'm Nimadith, an undergraduate IT enthusiast from SLIIT. Passionate about building efficient and scalable solutions for real world problems.</p>
+    <!-- HOME SECTION -->
+    <section id="home" class="section">
+        <header>
+            <img src="myImage.jpg" alt="Profile" class="profile-img">
+            <h1>HAVINDU NIMADITH</h1>
+            <div class="tagline">Innovative IT Enthusiast | Building Solutions for the Future</div>
+            <p>SE undergraduate IT enthusiast passionate about building efficient and scalable solutions for real-world problems.</p>
+            <div class="header-buttons">
+                <a href="NIMADITH LMH.pdf" class="cv-button" download><i class="fas fa-file-pdf"></i> Download CV</a>
+            </div>
+        </header>
+
+        <section class="about card">
+            <div class="section-title">About Me</div>
+            <p>Hi, I'm Nimadith, an SE undergraduate, IT enthusiast from SLIIT. Passionate about building efficient and scalable solutions for real world problems.</p>
+        </section>
+
+        <section class="skills card">
+            <div class="section-title">Skills & Tools</div>
+            <div class="skills-list">
+                <div class="skill"><i class="fab fa-js"></i> JavaScript</div>
+                <div class="skill"><i class="fab fa-react"></i> React</div>
+                <div class="skill"><i class="fab fa-node-js"></i> Node.js</div>
+                <div class="skill"><i class="fab fa-php"></i> PHP</div>
+                <div class="skill"><i class="fab fa-java"></i> Java</div>
+                <div class="skill"><i class="fab fa-python"></i> Python</div>
+                <div class="skill"><i class="fab fa-microsoft"></i> C#</div>
+                <div class="skill"><i class="fab fa-html5"></i> HTML5</div>
+                <div class="skill"><i class="fab fa-css3-alt"></i> CSS</div>
+                <div class="skill"><i class="fab fa-aws"></i> AWS</div>
+                <div class="skill"><i class="fab fa-microsoft"></i> Azure</div>
+                <div class="skill"><i class="fab fa-microsoft"></i> .NET</div>
+                <div class="skill"><i class="fab fa-flutter"></i> Flutter</div>
+                <div class="skill"><i class="fab fa-android"></i> Kotlin</div>
+                <div class="skill"><i class="fab fa-android"></i> Android</div>
+                <div class="skill"><i class="fas fa-database"></i> MySQL</div>
+                <div class="skill"><i class="fas fa-database"></i> MongoDB</div>
+                <div class="skill"><i class="fas fa-fire"></i> Firebase</div>
+                <div class="skill"><i class="fas fa-database"></i> Oracle</div>
+                <div class="skill"><i class="fab fa-docker"></i> Docker</div>
+            </div>
+        </section>
     </section>
 
-    <section class="skills glass">
-        <div class="section-title">Skills & Tools</div>
-        <div class="skills-list">
-            <div class="skill"><i class="fab fa-js"></i> JavaScript</div>
-            <div class="skill"><i class="fab fa-react"></i> React</div>
-            <div class="skill"><i class="fab fa-node-js"></i> Node.js</div>
-            <div class="skill"><i class="fab fa-php"></i> PHP</div>
-            <div class="skill"><i class="fab fa-java"></i> Java</div>
-            <div class="skill"><i class="fab fa-python"></i> Python</div>
-            <div class="skill"><i class="fab fa-microsoft"></i> C#</div>
-            <div class="skill"><i class="fab fa-html5"></i> HTML5</div>
-            <div class="skill"><i class="fab fa-css3-alt"></i> CSS</div>
-            <div class="skill"><i class="fab fa-aws"></i> AWS</div>
-            <div class="skill"><i class="fab fa-microsoft"></i> Azure</div>
-            <div class="skill"><i class="fab fa-microsoft"></i> .NET</div>
-            <div class="skill"><i class="fab fa-flutter"></i> Flutter</div>
-            <div class="skill"><i class="fab fa-android"></i> Kotlin</div>
-            <div class="skill"><i class="fab fa-android"></i> Android</div>
-            <div class="skill"><i class="fas fa-database"></i> MySQL</div>
-            <div class="skill"><i class="fas fa-database"></i> MongoDB</div>
-            <div class="skill"><i class="fas fa-fire"></i> Firebase</div>
-            <div class="skill"><i class="fas fa-database"></i> Oracle</div>
-            <div class="skill"><i class="fab fa-docker"></i> Docker</div>
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="section">
+        <div class="page-title">Projects</div>
+        <div class="page-subtitle">Showcasing my key development projects</div>
+
+        <section class="projects card">
+            <div class="projects-list">
+                <div class="project-card card">
+                    <div class="project-title">Online Computer Parts Management System</div>
+                    <div class="project-desc">A Java-based web application designed to streamline the management of computer parts for both customers and sellers.</div>
+                    <a href="https://github.com/NIMADITH-LMH/Online-Computer-Parts-Management-System" target="_blank" rel="noopener" class="view-project">View on GitHub</a>
+                </div>
+                
+                <div class="project-card card">
+                    <div class="project-title">Finance Tracker App</div>
+                    <div class="project-desc">A simple and efficient finance tracking app to help users manage expenses, income, and budgets with ease.</div>
+                    <a href="https://github.com/NIMADITH-LMH/Finance-Tracker-App" target="_blank" rel="noopener" class="view-project">View on GitHub</a>
+                </div>
+                
+                <div class="project-card card">
+                    <div class="project-title">Fashion Pulse</div>
+                    <div class="project-desc">A MERN stack-based web app that lets users browse dresses from various shops and buy them online with secure payments.</div>
+                    <a href="https://github.com/NIMADITH-LMH/Fashion-Pulse" target="_blank" rel="noopener" class="view-project">View on GitHub</a>
+                </div>
+                
+                <div class="project-card card">
+                    <div class="project-title">Music Player</div>
+                    <div class="project-desc">A modern, scalable desktop music player built with Electron.js, HTML, CSS, and JavaScript.</div>
+                    <a href="https://github.com/NIMADITH-LMH/Music-Player" target="_blank" rel="noopener" class="view-project">View on GitHub</a>
+                </div>
+                
+                <div class="project-card card">
+                    <div class="project-title">Scientific Calculator</div>
+                    <div class="project-desc">A feature-rich desktop application with advanced mathematical functions beyond basic arithmetic.</div>
+                    <a href="https://github.com/NIMADITH-LMH/Scientific-Calculator" target="_blank" rel="noopener" class="view-project">View on GitHub</a>
+                </div>
+                
+                <div class="project-card card">
+                    <div class="project-title">Noughts and Crosses Mobile Game</div>
+                    <div class="project-desc">A classic Tic-Tac-Toe game with a sleek design and smooth gameplay. Play solo or challenge a friend.</div>
+                    <a href="https://github.com/NIMADITH-LMH/Noughts-and-Crosses-Mobile-Game" target="_blank" rel="noopener" class="view-project">View on GitHub</a>
+                </div>
+                
+                <div class="project-card card">
+                    <div class="project-title">Wildlife Safari Management System</div>
+                    <div class="project-desc">A comprehensive project designed to streamline the operations of a safari booking and management platform.</div>
+                    <a href="https://github.com/NIMADITH-LMH/Wildlife-safari-Managements-System" target="_blank" rel="noopener" class="view-project">View on GitHub</a>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- CERTIFICATIONS SECTION -->
+    <section id="certifications" class="section">
+        <div class="page-title">Certifications</div>
+        <div class="page-subtitle">My professional credentials and achievements</div>
+
+        <section class="pdf-section">
+            <div class="pdf-section-wrapper">
+                <h2 class="pdf-section-title">AWS Certification Gallery</h2>
+            </div>
+            <p class="pdf-section-description">Core AWS cloud services and fundamentals certifications</p>
+            <div class="pdf-gallery">
+                <div class="pdf-card card">
+                    <div class="pdf-title">AWS Cloud Practitioner Essentials</div>
+                    <a href="certification pdf's/AWS Cloud Practitioner Essentials.pdf" class="pdf-link" target="_blank">
+                        <i class="fas fa-file-pdf"></i>View Certificate
+                    </a>
+                </div>
+                
+                <div class="pdf-card card">
+                    <div class="pdf-title">AWS Lambda Foundations</div>
+                    <a href="certification pdf's/AWS Lambda Foundations.pdf" class="pdf-link" target="_blank">
+                        <i class="fas fa-file-pdf"></i>View Certificate
+                    </a>
+                </div>
+                
+                <div class="pdf-card card">
+                    <div class="pdf-title">AWS Cloud Essentials for Business Leaders</div>
+                    <a href="certification pdf's/AWS Cloud Essentials for Business Leaders Telecommunications.pdf" class="pdf-link" target="_blank">
+                        <i class="fas fa-file-pdf"></i>View Certificate
+                    </a>
+                </div>
+                
+                <div class="pdf-card card">
+                    <div class="pdf-title">Amazon EC2 Basics</div>
+                    <a href="certification pdf's/Amazon EC2 Basics.pdf" class="pdf-link" target="_blank">
+                        <i class="fas fa-file-pdf"></i>View Certificate
+                    </a>
+                </div>
+                
+                <div class="pdf-card card">
+                    <div class="pdf-title">AWS Observability</div>
+                    <a href="certification pdf's/AWS Observability.pdf" class="pdf-link" target="_blank">
+                        <i class="fas fa-file-pdf"></i>View Certificate
+                    </a>
+                </div>
+                
+                <div class="pdf-card card">
+                    <div class="pdf-title">Serverless Analytics</div>
+                    <a href="certification pdf's/Serverless Analytics.pdf" class="pdf-link" target="_blank">
+                        <i class="fas fa-file-pdf"></i>View Certificate
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="pdf-section">
+            <div class="pdf-section-wrapper">
+                <h2 class="pdf-section-title">AWS Game Development</h2>
+            </div>
+            <p class="pdf-section-description">Specialized game development skills using AWS cloud services</p>
+            <div class="pdf-gallery">
+                <div class="pdf-card card">
+                    <div class="pdf-title">Cloud Game Development Knowledge Badge</div>
+                    <a href="certification pdf's/Cloud Game Development Knowledge Badge Assesment.pdf" class="pdf-link" target="_blank">
+                        <i class="fas fa-file-pdf"></i>View Certificate
+                    </a>
+                </div>
+                
+                <div class="pdf-card card">
+                    <div class="pdf-title">Introduction to AWS Cloud Game Development</div>
+                    <a href="certification pdf's/Introduction to AWS Cloud Game Development.pdf" class="pdf-link" target="_blank">
+                        <i class="fas fa-file-pdf"></i>View Certificate
+                    </a>
+                </div>
+                
+                <div class="pdf-card card">
+                    <div class="pdf-title">Getting Started with AWS for Games - part 1</div>
+                    <a href="certification pdf's/Getting Started with AWS for Games - part 1.pdf" class="pdf-link" target="_blank">
+                        <i class="fas fa-file-pdf"></i>View Certificate
+                    </a>
+                </div>
+                
+                <div class="pdf-card card">
+                    <div class="pdf-title">Getting Started with AWS for Games - part 2</div>
+                    <a href="certification pdf's/Getting Started with AWS for Games - part 2.pdf" class="pdf-link" target="_blank">
+                        <i class="fas fa-file-pdf"></i>View Certificate
+                    </a>
+                </div>
+                
+                <div class="pdf-card card">
+                    <div class="pdf-title">AWS for Games Cloud Game Development</div>
+                    <a href="certification pdf's/AWS for Games Cloud Game Development - Knowledge Badge Readiness Path.pdf" class="pdf-link" target="_blank">
+                        <i class="fas fa-file-pdf"></i>View Certificate
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="pdf-section">
+            <div class="pdf-section-wrapper">
+                <h2 class="pdf-section-title">DevOps & Infrastructure</h2>
+            </div>
+            <p class="pdf-section-description">Advanced cloud infrastructure management and automation</p>
+            <div class="pdf-gallery">
+                <div class="pdf-card card">
+                    <div class="pdf-title">Getting Started with DevOps on AWS</div>
+                    <a href="certification pdf's/Getting Started with DevOps on AWS.pdf" class="pdf-link" target="_blank">
+                        <i class="fas fa-file-pdf"></i>View Certificate
+                    </a>
+                </div>
+                
+                <div class="pdf-card card">
+                    <div class="pdf-title">Advanced Testing Practices Using AWS DevOps Tools</div>
+                    <a href="certification pdf's/Advanced Testing Practices Using AWS DevOps Tools.pdf" class="pdf-link" target="_blank">
+                        <i class="fas fa-file-pdf"></i>View Certificate
+                    </a>
+                </div>
+                
+                <div class="pdf-card card">
+                    <div class="pdf-title">Getting Started with AWS CloudFormation</div>
+                    <a href="certification pdf's/Getting Started with AWS CloudFormation.pdf" class="pdf-link" target="_blank">
+                        <i class="fas fa-file-pdf"></i>View Certificate
+                    </a>
+                </div>
+                
+                <div class="pdf-card card">
+                    <div class="pdf-title">Managing Applications at Scale with Amazon ECS</div>
+                    <a href="certification pdf's/Managing Applications at Scale with Amazon ECS.pdf" class="pdf-link" target="_blank">
+                        <i class="fas fa-file-pdf"></i>View Certificate
+                    </a>
+                </div>
+                
+                <div class="pdf-card card">
+                    <div class="pdf-title">.NET Workloads on AWS</div>
+                    <a href="certification pdf's/.NET Workloads on AWS.pdf" class="pdf-link" target="_blank">
+                        <i class="fas fa-file-pdf"></i>View Certificate
+                    </a>
+                </div>
+                
+                <div class="pdf-card card">
+                    <div class="pdf-title">Monitor .NET applications using Amazon CloudWatch</div>
+                    <a href="certification pdf's/Monitor .NET applications using Amazon CloudWatch Application Signals.pdf" class="pdf-link" target="_blank">
+                        <i class="fas fa-file-pdf"></i>View Certificate
+                    </a>
+                </div>
+                
+                <div class="pdf-card card">
+                    <div class="pdf-title">Deploying Serverless Applications</div>
+                    <a href="certification pdf's/Deploying Serverless Applications.pdf" class="pdf-link" target="_blank">
+                        <i class="fas fa-file-pdf"></i>View Certificate
+                    </a>
+                </div>
+                
+                <div class="pdf-card card">
+                    <div class="pdf-title">Introduction to Serverless Development</div>
+                    <a href="certification pdf's/Introduction to Serverless Development.pdf" class="pdf-link" target="_blank">
+                        <i class="fas fa-file-pdf"></i>View Certificate
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="pdf-section">
+            <div class="pdf-section-wrapper">
+                <h2 class="pdf-section-title">Database & Analytics</h2>
+            </div>
+            <p class="pdf-section-description">Database management, data warehousing, and analytics</p>
+            <div class="pdf-gallery">
+                <div class="pdf-card card">
+                    <div class="pdf-title">Amazon Redshift Getting Started</div>
+                    <a href="certification pdf's/Amazon Redshift Getting Started.pdf" class="pdf-link" target="_blank">
+                        <i class="fas fa-file-pdf"></i>View Certificate
+                    </a>
+                </div>
+                
+                <div class="pdf-card card">
+                    <div class="pdf-title">Amazon Redshift - Best Practices for Data Warehousing</div>
+                    <a href="certification pdf's/Amazon Redshift - Best Practices for Data Warehousing on AWS.pdf" class="pdf-link" target="_blank">
+                        <i class="fas fa-file-pdf"></i>View Certificate
+                    </a>
+                </div>
+                
+                <div class="pdf-card card">
+                    <div class="pdf-title">Data Modeling for Amazon ElastiCache for Redis</div>
+                    <a href="certification pdf's/Data Modeling for Amazon ElastiCache for Redis.pdf" class="pdf-link" target="_blank">
+                        <i class="fas fa-file-pdf"></i>View Certificate
+                    </a>
+                </div>
+                
+                <div class="pdf-card card">
+                    <div class="pdf-title">Designing Blockchain Solutions</div>
+                    <a href="certification pdf's/Designing Blockchain Solutions using Amazon Managed Blockchain.pdf" class="pdf-link" target="_blank">
+                        <i class="fas fa-file-pdf"></i>View Certificate
+                    </a>
+                </div>
+                
+                <div class="pdf-card card">
+                    <div class="pdf-title">Deep Dive: Managing Amazon EBS</div>
+                    <a href="certification pdf's/Deep Dive Managing and Monitoring Amazon Elastic Block Store (Amazon EBS).pdf" class="pdf-link" target="_blank">
+                        <i class="fas fa-file-pdf"></i>View Certificate
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="pdf-section">
+            <div class="pdf-section-wrapper">
+                <h2 class="pdf-section-title">Networking & Security</h2>
+            </div>
+            <p class="pdf-section-description">Advanced networking and security configurations</p>
+            <div class="pdf-gallery">
+                <div class="pdf-card card">
+                    <div class="pdf-title">AWS IPv6 Fundamentals and VPC Connectivity</div>
+                    <a href="certification pdf's/AWS IPv6 Fundamentals and VPC Connectivity.pdf" class="pdf-link" target="_blank">
+                        <i class="fas fa-file-pdf"></i>View Certificate
+                    </a>
+                </div>
+                
+                <div class="pdf-card card">
+                    <div class="pdf-title">AWS IPv6 Application Networking</div>
+                    <a href="certification pdf's/AWS IPv6 Application Networking and Internet Edge Connectivity.pdf" class="pdf-link" target="_blank">
+                        <i class="fas fa-file-pdf"></i>View Certificate
+                    </a>
+                </div>
+                
+                <div class="pdf-card card">
+                    <div class="pdf-title">AWS IPv6 Design and Build Global IPv6 Networks</div>
+                    <a href="certification pdf's/AWS IPv6 Design and Build Global IPv6 Networks on AWS.pdf" class="pdf-link" target="_blank">
+                        <i class="fas fa-file-pdf"></i>View Certificate
+                    </a>
+                </div>
+                
+                <div class="pdf-card card">
+                    <div class="pdf-title">AWS IPv6 Learning Plan</div>
+                    <a href="certification pdf's/AWS IPv6 Learning Plan.pdf" class="pdf-link" target="_blank">
+                        <i class="fas fa-file-pdf"></i>View Certificate
+                    </a>
+                </div>
+                
+                <div class="pdf-card card">
+                    <div class="pdf-title">Introduction to AWS WAF</div>
+                    <a href="certification pdf's/Introduction to AWS WAF.pdf" class="pdf-link" target="_blank">
+                        <i class="fas fa-file-pdf"></i>View Certificate
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="pdf-section">
+            <div class="pdf-section-wrapper">
+                <h2 class="pdf-section-title">Specialized AWS Certifications</h2>
+            </div>
+            <p class="pdf-section-description">Additional specialized AWS services and knowledge</p>
+            <div class="pdf-gallery">
+                <div class="pdf-card card">
+                    <div class="pdf-title">Amazon Connect Routing Fundamentals</div>
+                    <a href="certification pdf's/Amazon Connect Routing Fundamentals.pdf" class="pdf-link" target="_blank">
+                        <i class="fas fa-file-pdf"></i>View Certificate
+                    </a>
+                </div>
+                
+                <div class="pdf-card card">
+                    <div class="pdf-title">Cloud Essentials Knowledge Badge Assessment</div>
+                    <a href="certification pdf's/Cloud Essentials Knowledge Badge Assesment.pdf" class="pdf-link" target="_blank">
+                        <i class="fas fa-file-pdf"></i>View Certificate
+                    </a>
+                </div>
+                
+                <div class="pdf-card card">
+                    <div class="pdf-title">Exam Prep: AWS Certified Machine Learning</div>
+                    <a href="certification pdf's/Exam Prep Official Practice Question Set AWS certified Machine Learning.pdf" class="pdf-link" target="_blank">
+                        <i class="fas fa-file-pdf"></i>View Certificate
+                    </a>
+                </div>
+                
+                <div class="pdf-card card">
+                    <div class="pdf-title">Sustainability Strategies with Generative AI</div>
+                    <a href="certification pdf's/Sustainability Strategies with Genarative AI.pdf" class="pdf-link" target="_blank">
+                        <i class="fas fa-file-pdf"></i>View Certificate
+                    </a>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- EXPERIENCE & EDUCATION SECTION -->
+    <section id="experience" class="section">
+        <div class="experience-page-title">Experience & Education</div>
+        <div class="page-subtitle">My academic journey and professional experience</div>
+
+        <div class="timeline-container card">
+            <div class="timeline-content">
+                <div class="content-title">Bachelor of Science in Information Technology</div>
+                <div class="content-organization">Sri Lanka Institute of Information Technology (SLIIT)</div>
+                <div class="content-date">2023 - Present</div>
+                <div class="content-description">
+                    Currently pursuing a Bachelor's degree in Information Technology, focusing on software development, 
+                    cloud computing, and modern web technologies. Actively involved in various programming projects 
+                    and building practical solutions.
+                </div>
+            </div>
+            
+            <div class="timeline-content">
+                <div class="content-title">Advanced Level Education</div>
+                <div class="content-organization">Secondary Education</div>
+                <div class="content-date">2009 - 2023</div>
+                <div class="content-description">
+                    Completed Advanced Level studies with a focus on Mathematics and Science, providing a strong 
+                    foundation for pursuing higher education in Information Technology.
+                </div>
+            </div>
         </div>
     </section>
-      
-    <section id="contact-section" class="contact glass">
+
+    <!-- TECH INSIGHTS SECTION -->
+    <section id="tech-insights" class="section">
+        <div class="page-title">Tech Insights</div>
+        <div class="page-subtitle">Sharing knowledge and insights about technology</div>
+
+        <section class="blog card">
+            <div class="blog-posts">
+                <div class="blog-post">
+                    <div class="blog-title">The Future of Cloud Computing</div>
+                    <div class="blog-excerpt">
+                        Cloud computing continues to evolve rapidly, with new services and capabilities being introduced regularly. 
+                        Understanding these trends is crucial for modern developers.
+                    </div>
+                    <div class="blog-full-content">
+                        <p>Cloud computing has revolutionized how we build, deploy, and scale applications. With the rise of serverless computing, container orchestration, and edge computing, developers have more tools than ever before.</p>
+                        
+                        <h4>Key Trends to Watch</h4>
+                        <ul>
+                            <li><strong>Serverless Computing</strong>: Functions-as-a-Service (FaaS) platforms like AWS Lambda are changing how we think about application architecture.</li>
+                            <li><strong>Multi-Cloud Strategies</strong>: Organizations are increasingly adopting multi-cloud approaches to avoid vendor lock-in.</li>
+                            <li><strong>Edge Computing</strong>: Processing data closer to where it's generated for improved performance and reduced latency.</li>
+                        </ul>
+                        
+                        <p>As we move forward, cloud-native development practices will become even more important. Understanding containerization, microservices, and DevOps practices is essential for any developer working in the cloud space.</p>
+                    </div>
+                    <button class="blog-read-more" onclick="toggleBlogContent(this)">Read More</button>
+                </div>
+
+                <div class="blog-post">
+                    <div class="blog-title">Modern Web Development Practices</div>
+                    <div class="blog-excerpt">
+                        The web development landscape is constantly changing. Here are some modern practices that every developer should consider.
+                    </div>
+                    <div class="blog-full-content">
+                        <p>Modern web development has evolved significantly over the past few years. With the introduction of new frameworks, tools, and best practices, developers need to stay updated with the latest trends.</p>
+                        
+                        <h4>Essential Modern Practices</h4>
+                        <ul>
+                            <li><strong>Component-Based Architecture</strong>: Building reusable UI components with frameworks like React, Vue, or Angular.</li>
+                            <li><strong>Progressive Web Apps (PWAs)</strong>: Creating web applications that work offline and provide native app-like experiences.</li>
+                            <li><strong>JAMstack Architecture</strong>: JavaScript, APIs, and Markup for faster, more secure websites.</li>
+                            <li><strong>Performance Optimization</strong>: Code splitting, lazy loading, and optimizing bundle sizes.</li>
+                        </ul>
+                        
+                        <p>The key is to choose the right tools for your project while maintaining code quality, performance, and user experience.</p>
+                    </div>
+                    <button class="blog-read-more" onclick="toggleBlogContent(this)">Read More</button>
+                </div>
+
+                <div class="blog-post">
+                    <div class="blog-title">Responsive Design Best Practices</div>
+                    <div class="blog-excerpt">
+                        Creating websites that work seamlessly across all devices requires careful planning and implementation.
+                    </div>
+                    <div class="blog-full-content">
+                        <p>Responsive design is no longer optional—it's essential. With users accessing websites from various devices, ensuring a consistent experience across all screen sizes is crucial.</p>
+                        
+                        <h4>Core Principles</h4>
+                        <ul>
+                            <li><strong>Mobile-First Approach</strong>: Design for mobile devices first, then enhance for larger screens.</li>
+                            <li><strong>Fluid Grids</strong>: Use relative units (%, rem, em) instead of fixed pixel values.</li>
+                            <li><strong>Flexible Images</strong>: Ensure images scale proportionally and consider different resolutions.</li>
+                            <li><strong>Media Queries</strong>: Apply different styles based on device characteristics.</li>
+                        </ul>
+                        
+                        <h4>Modern Techniques</h4>
+                        <ul>
+                            <li><strong>CSS Grid & Flexbox</strong>: Powerful layout tools that simplify responsive designs.</li>
+                            <li><strong>CSS Custom Properties</strong>: Use variables to maintain consistency across breakpoints.</li>
+                            <li><strong>Container Queries</strong>: Style elements based on their parent container's size, not just viewport size.</li>
+                        </ul>
+                        
+                        <p>Testing is crucial - always check your designs on actual devices or using browser developer tools that simulate different screen sizes.</p>
+                    </div>
+                    <button class="blog-read-more" onclick="toggleBlogContent(this)">Read More</button>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact-section" class="contact card">
         <div class="section-title">Contact</div>
         <p>Let's connect! Reach me at <a href="mailto:havindunimadith7@gmail.com">havindunimadith7@gmail.com</a></p>
         
@@ -97,9 +736,10 @@
                     <label for="message">Message</label>
                     <textarea id="message" name="message" rows="5" required></textarea>
                 </div>
-                <button type="submit" class="send-button">
-                    <i class="fas fa-paper-plane"></i> Send Message
+                <button type="submit" class="send-button" id="sendButton">
+                    <i class="fas fa-paper-plane"></i> <span id="buttonText">Send Message</span>
                 </button>
+                <div id="formMessage" class="form-message"></div>
             </form>
         </div>
 
@@ -111,30 +751,7 @@
         </div>
     </section>
 
-    <script>
-        function handleSubmit(event) {
-            event.preventDefault();
-            
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-            
-            // Create mailto URL
-            const mailtoLink = `mailto:havindunimadith7@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("Name: " + name + "\nEmail: " + email + "\n\nMessage:\n" + message)}`;
-            
-            // Open default email client
-            window.location.href = mailtoLink;
-            
-            // Clear form
-            document.getElementById('messageForm').reset();
-            
-            return false;
-        }
-    </script>
-    
-    <footer class="footer glass">
+    <footer class="footer card">
         <p>&copy; 2025 Nimadith LMH. All rights reserved.</p>
         <div class="footer-links">
             <a href="https://www.linkedin.com/in/havindu-nimadith-065414310/" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
@@ -143,5 +760,133 @@
             <a href="https://web.facebook.com/havinduuu?mibextid=ZbWKwL&_rdc=1&_rdr" target="_blank" rel="noopener" title="Facebook"><i class="fab fa-facebook"></i></a>
         </div>
     </footer>
+
+    <script>
+        // Initialize EmailJS
+        (function(){
+            // Replace 'YOUR_PUBLIC_KEY' with your actual EmailJS public key
+            emailjs.init('4SCwt0f4FR-1PteUN'); // You'll get this from EmailJS dashboard
+        })();
+
+        // Handle form submission with EmailJS
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            const sendButton = document.getElementById('sendButton');
+            const buttonText = document.getElementById('buttonText');
+            const formMessage = document.getElementById('formMessage');
+            const form = document.getElementById('messageForm');
+            
+            // Show loading state
+            sendButton.disabled = true;
+            buttonText.textContent = 'Sending...';
+            sendButton.querySelector('i').className = 'fas fa-spinner fa-spin';
+            formMessage.textContent = '';
+            formMessage.className = 'form-message';
+            
+            // Prepare template parameters
+            const templateParams = {
+                from_name: document.getElementById('name').value,
+                from_email: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value,
+                to_name: 'Nimadith LMH' // Your name
+            };
+            
+            // Send email using EmailJS
+            // Replace 'YOUR_TEMPLATE_ID' with your actual Template ID from EmailJS
+            emailjs.send('service_de6dnqx', 'template_7pwjrk8', templateParams)
+                .then(function(response) {
+                    console.log('Email sent successfully!', response.status, response.text);
+                    
+                    // Show success message
+                    formMessage.textContent = '✅ Message sent successfully! I\'ll get back to you soon.';
+                    formMessage.className = 'form-message success';
+                    
+                    // Reset form
+                    form.reset();
+                    
+                }, function(error) {
+                    console.error('Failed to send email:', error);
+                    
+                    // Show error message with fallback
+                    formMessage.innerHTML = '❌ Failed to send message. Please try again or email me directly at <a href="mailto:havindunimadith7@gmail.com">havindunimadith7@gmail.com</a>';
+                    formMessage.className = 'form-message error';
+                })
+                .finally(function() {
+                    // Reset button state
+                    sendButton.disabled = false;
+                    buttonText.textContent = 'Send Message';
+                    sendButton.querySelector('i').className = 'fas fa-paper-plane';
+                });
+            
+            return false;
+        }
+
+        // Blog content toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const blogContents = document.querySelectorAll('.blog-full-content');
+            blogContents.forEach(content => {
+                content.style.display = 'none';
+            });
+        });
+
+        function toggleBlogContent(element) {
+            const blogPost = element.parentNode;
+            const fullContent = blogPost.querySelector('.blog-full-content');
+            
+            if (fullContent.style.display === 'none') {
+                fullContent.style.display = 'block';
+                element.textContent = 'Show Less';
+            } else {
+                fullContent.style.display = 'none';
+                element.textContent = 'Read More';
+            }
+        }
+
+        // Smooth scrolling navigation with active state
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.section');
+
+            // Handle navigation clicks
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    
+                    if (targetSection) {
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                    
+                    // Update active state
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            // Update active navigation on scroll
+            window.addEventListener('scroll', function() {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (window.pageYOffset >= sectionTop - 100) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').substring(1) === current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

@@ -51,8 +51,8 @@
     position: relative;
 }
 
-/* Enhanced Gold glow effect for glass container */
-.timeline-container.glass {
+/* Enhanced Gold glow effect for card container */
+.timeline-container.card {
     overflow: hidden;
     position: relative;
     background: rgba(26, 45, 66, 0.6);
@@ -64,7 +64,7 @@
     transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.timeline-container.glass::before {
+.timeline-container.card::before {
     content: '';
     position: absolute;
     top: 0;
@@ -78,7 +78,7 @@
     border-radius: 12px;
 }
 
-.timeline-container.glass::after {
+.timeline-container.card::after {
     content: '';
     position: absolute;
     top: 0;
@@ -93,30 +93,30 @@
     z-index: -1;
 }
 
-.timeline-container.glass:hover {
+.timeline-container.card:hover {
     box-shadow: 0 15px 40px rgba(240, 165, 0, 0.25);
     border: 1px solid rgba(240, 165, 0, 0.4);
     transform: translateY(-5px) scale(1.01);
     background: rgba(26, 45, 66, 0.7);
 }
 
-.timeline-container.glass:hover::before {
+.timeline-container.card:hover::before {
     opacity: 1;
 }
 
-.timeline-container.glass:hover::after {
+.timeline-container.card:hover::after {
     opacity: 0.6;
     box-shadow: 0 0 40px rgba(240, 165, 0, 0.4);
 }
 
-/* Footer glass effect enhancement */
-.footer.glass {
+/* Footer card effect enhancement */
+.footer.card {
     position: relative;
     overflow: hidden;
     transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.footer.glass::before {
+.footer.card::before {
     content: '';
     position: absolute;
     top: 0;
@@ -129,13 +129,13 @@
     z-index: -2;
 }
 
-.footer.glass:hover {
+.footer.card:hover {
     box-shadow: 0 15px 40px rgba(240, 165, 0, 0.2);
     border: 1px solid rgba(240, 165, 0, 0.3);
     transform: translateY(-5px);
 }
 
-.footer.glass:hover::before {
+.footer.card:hover::before {
     opacity: 1;
 }
 

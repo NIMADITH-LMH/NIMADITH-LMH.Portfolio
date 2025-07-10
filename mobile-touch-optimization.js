@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.classList.add('touch-device');
         
         // Add active state for interactive elements
-        const interactiveElements = document.querySelectorAll('a, button, .pdf-card, .glass');
+        const interactiveElements = document.querySelectorAll('a, button, .pdf-card, .card');
         
         interactiveElements.forEach(element => {
             element.addEventListener('touchstart', function() {

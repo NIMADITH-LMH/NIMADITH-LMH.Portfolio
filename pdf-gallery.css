@@ -111,8 +111,8 @@
     background: rgba(26, 45, 66, 0.7);
 }
 
-/* Special styling for PDF cards with glass effect */
-.pdf-card.glass {
+/* Special styling for PDF cards with card effect */
+.pdf-card.card {
     background: rgba(26, 45, 66, 0.7);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
@@ -122,23 +122,23 @@
     transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.pdf-card.glass:hover {
+.pdf-card.card:hover {
     box-shadow: 0 15px 40px rgba(240, 165, 0, 0.25);
     border: 1px solid rgba(240, 165, 0, 0.4);
     transform: translateY(-8px) rotateX(5deg) scale(1.01);
     background: rgba(26, 45, 66, 0.7);
 }
 
-.pdf-card.glass:hover .pdf-icon {
+.pdf-card.card:hover .pdf-icon {
     text-shadow: 0 0 15px rgba(240, 165, 0, 0.9);
 }
 
-.pdf-card.glass:hover .pdf-link {
+.pdf-card.card:hover .pdf-link {
     background-color: rgba(240, 165, 0, 0.2);
 }
 
 /* Add a subtle glow to the title on hover */
-.pdf-card.glass:hover .pdf-title {
+.pdf-card.card:hover .pdf-title {
     text-shadow: 0 0 10px rgba(240, 165, 0, 0.5);
 }
 

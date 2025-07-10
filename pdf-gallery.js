@@ -165,8 +165,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Add particles support for PDF cards
 document.addEventListener('DOMContentLoaded', function() {
-    // Get all PDF cards with glass class
-    const pdfGlassCards = document.querySelectorAll('.pdf-card.glass');
+    // Get all PDF cards with card class
+    const pdfCardCards = document.querySelectorAll('.pdf-card.card');
     
     // Create gold particle effect
     function createGoldParticles(container) {
@@ -208,8 +208,8 @@ document.addEventListener('DOMContentLoaded', function() {
         container.appendChild(particleContainer);
     }
     
-    // Apply particles and enhanced effects to all PDF glass cards
-    pdfGlassCards.forEach(card => {
+    // Apply particles and enhanced effects to all PDF card cards
+    pdfCardCards.forEach(card => {
         // Create particles on hover
         card.addEventListener('mouseenter', () => {
             createGoldParticles(card);

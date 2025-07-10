@@ -59,7 +59,9 @@
 .form-group textarea {
     width: 100%;
     padding: 12px;
-    background: var(--navy);
+    background: rgba(13, 27, 42, 0.7);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
     border: 1px solid rgba(240, 165, 0, 0.2);
     border-radius: 4px;
     color: var(--off-white);
@@ -135,7 +137,7 @@ body {
     overflow-x: hidden;
 }
 
-.glass {
+.card {
     background: var(--navy-light);
     border-radius: 8px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
@@ -862,124 +864,6 @@ header p {
     transform: translateY(-5px);
     box-shadow: 0 12px 40px 0 rgba(240, 165, 0, 0.4);
     border: 1px solid rgba(240, 165, 0, 0.2);
-}
-
-/* Contact Form Styles */
-.contact-form {
-    background: var(--charcoal);
-    padding: 30px;
-    border-radius: 8px;
-    margin: 30px 0;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    border-left: 3px solid var(--gold);
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.form-header {
-    text-align: center;
-    margin-bottom: 25px;
-}
-
-.form-header i {
-    font-size: 2.5rem;
-    color: var(--gold);
-    margin-bottom: 15px;
-}
-
-.form-header h2 {
-    color: var(--gold);
-    font-size: 1.5rem;
-    margin: 10px 0;
-}
-
-.form-header p {
-    color: var(--off-white);
-    font-size: 0.9rem;
-    opacity: 0.8;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    color: var(--off-white);
-    font-size: 0.9rem;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 12px;
-    background: var(--navy);
-    border: 1px solid rgba(240, 165, 0, 0.2);
-    border-radius: 4px;
-    color: var(--off-white);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.95rem;
-    transition: all 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--gold);
-    box-shadow: 0 0 8px rgba(240, 165, 0, 0.2);
-}
-
-.form-group textarea {
-    resize: vertical;
-    min-height: 120px;
-}
-
-.send-button {
-    background: var(--gold);
-    color: var(--navy);
-    border: none;
-    padding: 12px 25px;
-    border-radius: 4px;
-    font-weight: 600;
-    font-size: 1rem;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    transition: all 0.3s ease;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.send-button i {
-    font-size: 1.1rem;
-}
-
-.send-button:hover {
-    background: var(--gold-light);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(240, 165, 0, 0.3);
-}
-
-/* Form Responsiveness */
-@media (max-width: 600px) {
-    .contact-form {
-        padding: 20px;
-    }
-    
-    .form-header i {
-        font-size: 2rem;
-    }
-    
-    .form-header h2 {
-        font-size: 1.3rem;
-    }
-    
-    .send-button {
-        width: 100%;
-        justify-content: center;
-    }
 }
 
 /* Improved header responsiveness */

@@ -5,8 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const pageTitle = document.querySelector('.experience-page-title');
     const pageSubtitle = document.querySelector('.page-subtitle');
     const introText = document.querySelector('.experience-intro-text');
-    const glassElements = document.querySelectorAll('.glass');
-    const glassElements = document.querySelectorAll('.glass');
+    const cardElements = document.querySelectorAll('.card');
     
     // Enhanced create gold particle effect
     function createGoldParticles(container) {
@@ -79,10 +78,10 @@ document.addEventListener('DOMContentLoaded', function() {
         container.appendChild(particleContainer);
     }
     
-    // Apply glow effect to all glass elements
-    glassElements.forEach(element => {
+    // Apply glow effect to all card elements
+    cardElements.forEach(element => {
         element.addEventListener('mouseenter', () => {
-            // Create gold particles for all glass elements
+            // Create gold particles for all card elements
             createGoldParticles(element);
             
             // Enhanced gold glow effect

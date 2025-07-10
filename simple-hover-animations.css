@@ -1,0 +1,247 @@
+/* Simple, Beautiful Hover Animations for Portfolio */
+
+:root {
+    --hover-lift: -8px;
+    --hover-glow-color: rgba(240, 165, 0, 0.3);
+    --hover-scale: 1.02;
+    --animation-duration: 0.3s;
+    --animation-easing: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reset complex animations and disable keyframe animations */
+.complex-animation-reset {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    animation: none !important;
+}
+
+/* Global hover effect base */
+.hover-effect {
+    transition: all var(--animation-duration) var(--animation-easing);
+    position: relative;
+    z-index: 1;
+}
+
+.hover-effect:hover {
+    transform: translateY(var(--hover-lift)) scale(var(--hover-scale));
+    box-shadow: 0 10px 30px var(--hover-glow-color);
+}
+
+/* Navigation Links - Simple Scale and Glow */
+.main-nav a {
+    transition: all var(--animation-duration) var(--animation-easing) !important;
+    position: relative !important;
+    overflow: visible !important;
+}
+
+.main-nav a::before {
+    display: none !important; /* Remove complex radial animations */
+}
+
+.main-nav a:hover, .main-nav a.active {
+    color: var(--gold) !important;
+    transform: scale(1.1) !important;
+    text-shadow: 0 0 10px rgba(240, 165, 0, 0.5);
+}
+
+.main-nav .contact-nav-btn::before {
+    display: none !important; /* Remove complex radial animations */
+}
+
+.main-nav .contact-nav-btn:hover {
+    background: linear-gradient(135deg, #ffa500, var(--gold)) !important;
+    color: var(--dark-bg) !important;
+    transform: scale(1.1) translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(240, 165, 0, 0.4) !important;
+}
+
+/* Project Cards - Simple Lift */
+.project-card {
+    transition: all var(--animation-duration) var(--animation-easing) !important;
+}
+
+.project-card:hover {
+    transform: translateY(var(--hover-lift)) !important;
+    box-shadow: 0 15px 35px rgba(240, 165, 0, 0.2) !important;
+}
+
+.project-card:after {
+    display: none !important; /* Remove bottom border animations */
+}
+
+.project-card a.view-project:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 5px 15px rgba(240, 165, 0, 0.3) !important;
+}
+
+/* Skills - Simple Float */
+.skill {
+    transition: all var(--animation-duration) var(--animation-easing) !important;
+}
+
+.skill:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 8px 20px rgba(240, 165, 0, 0.2) !important;
+}
+
+.skill:before {
+    display: none !important; /* Remove complex background effects */
+}
+
+/* Card Sections - Gentle Lift */
+.card {
+    transition: all var(--animation-duration) var(--animation-easing) !important;
+}
+
+.about:hover, .projects:hover, .skills:hover, .contact:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 10px 30px rgba(240, 165, 0, 0.15) !important;
+}
+
+/* PDF Cards/Certification Cards */
+.pdf-card {
+    transition: all var(--animation-duration) var(--animation-easing) !important;
+}
+
+.pdf-card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 10px 25px rgba(240, 165, 0, 0.2) !important;
+}
+
+.pdf-link:hover {
+    transform: none !important; /* Prevent double transform */
+    color: var(--gold) !important;
+}
+
+/* Buttons - Simple Lift and Glow */
+.cv-button, .contact-button, .send-button {
+    transition: all var(--animation-duration) var(--animation-easing) !important;
+}
+
+.cv-button:hover, .contact-button:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 20px rgba(240, 165, 0, 0.3) !important;
+}
+
+.cv-button:before, .contact-button:before {
+    display: none !important; /* Remove complex background effects */
+}
+
+.send-button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 15px rgba(240, 165, 0, 0.4) !important;
+}
+
+/* Contact Links - Simple Scale */
+.contact-links a {
+    transition: all var(--animation-duration) var(--animation-easing) !important;
+}
+
+.contact-links a:hover {
+    transform: scale(1.2) !important;
+    color: var(--gold) !important;
+    text-shadow: 0 0 10px rgba(240, 165, 0, 0.5) !important;
+}
+
+/* Section Titles - Simple Underline */
+.section-title, .page-title {
+    position: relative;
+    transition: all var(--animation-duration) var(--animation-easing);
+}
+
+.section-title::after, .page-title::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gold);
+    transition: width var(--animation-duration) var(--animation-easing);
+}
+
+.section-title:hover::after, .page-title:hover::after {
+    width: 100%;
+}
+
+/* Blog Posts - Simple Lift */
+.blog-post {
+    transition: all var(--animation-duration) var(--animation-easing) !important;
+}
+
+.blog-post:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 10px 25px rgba(240, 165, 0, 0.2) !important;
+}
+
+/* Blog Read More Button */
+.blog-read-more {
+    transition: all var(--animation-duration) var(--animation-easing) !important;
+}
+
+.blog-read-more:hover {
+    background: var(--gold) !important;
+    color: var(--navy) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 5px 15px rgba(240, 165, 0, 0.3) !important;
+}
+
+/* Timeline Content */
+.timeline-content {
+    transition: all var(--animation-duration) var(--animation-easing) !important;
+}
+
+.timeline-content:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 20px rgba(240, 165, 0, 0.15) !important;
+}
+
+/* Form inputs - Simple Focus Glow */
+.form-group input:focus,
+.form-group textarea:focus {
+    box-shadow: 0 0 15px rgba(240, 165, 0, 0.3) !important;
+    transform: scale(1.01) !important;
+}
+
+/* Disable complex animations */
+@keyframes none {
+    0%, 100% { transform: none; }
+}
+
+/* Keep only essential fade-in animation */
+@keyframes simpleFadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: simpleFadeIn 0.6s ease-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    :root {
+        --hover-lift: -4px;
+        --hover-scale: 1.01;
+    }
+    
+    .main-nav a:hover {
+        transform: scale(1.05) !important;
+    }
+}
+
+/* Performance optimization */
+.hover-effect,
+.main-nav a,
+.project-card,
+.skill,
+.card,
+.pdf-card,
+.cv-button,
+.contact-button,
+.send-button,
+.contact-links a,
+.blog-post,
+.timeline-content {
+    will-change: transform, box-shadow;
+}
