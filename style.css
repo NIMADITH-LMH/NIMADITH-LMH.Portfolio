@@ -517,32 +517,37 @@ header p {
     transform-origin: left;
 }
 
-/* Adding staggered animation for skills */
-.skills-list .skill {
-    opacity: 0;
-    animation: fadeIn 0.5s forwards;
+/* Medium Blog Link Styling */
+.blog-link {
+    margin-top: 20px;
+    padding: 0;
+    border: none;
 }
 
-.skills-list .skill:nth-child(1) { animation-delay: 0.05s; }
-.skills-list .skill:nth-child(2) { animation-delay: 0.1s; }
-.skills-list .skill:nth-child(3) { animation-delay: 0.15s; }
-.skills-list .skill:nth-child(4) { animation-delay: 0.2s; }
-.skills-list .skill:nth-child(5) { animation-delay: 0.25s; }
-.skills-list .skill:nth-child(6) { animation-delay: 0.3s; }
-.skills-list .skill:nth-child(7) { animation-delay: 0.35s; }
-.skills-list .skill:nth-child(8) { animation-delay: 0.4s; }
-.skills-list .skill:nth-child(9) { animation-delay: 0.45s; }
-.skills-list .skill:nth-child(10) { animation-delay: 0.5s; }
-.skills-list .skill:nth-child(11) { animation-delay: 0.55s; }
-.skills-list .skill:nth-child(12) { animation-delay: 0.6s; }
-.skills-list .skill:nth-child(13) { animation-delay: 0.65s; }
-.skills-list .skill:nth-child(14) { animation-delay: 0.7s; }
-.skills-list .skill:nth-child(15) { animation-delay: 0.75s; }
-.skills-list .skill:nth-child(16) { animation-delay: 0.8s; }
-.skills-list .skill:nth-child(17) { animation-delay: 0.85s; }
-.skills-list .skill:nth-child(18) { animation-delay: 0.9s; }
-.skills-list .skill:nth-child(19) { animation-delay: 0.95s; }
-.skills-list .skill:nth-child(20) { animation-delay: 1s; }
+.blog-link a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--gold);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 12px 20px;
+    border: 2px solid var(--gold);
+    border-radius: 25px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: transparent;
+}
+
+.blog-link a:hover {
+    background: var(--gold);
+    color: var(--navy);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(240, 165, 0, 0.3);
+}
+
+.blog-link i {
+    font-size: 1.1rem;
+}
 
 /* Media Queries */
 @media (max-width: 768px) {
@@ -786,18 +791,18 @@ header p {
 }
 
 .blog-post {
-    background: var(--charcoal);
-    border-radius: 6px;
+    margin-bottom: 30px;
     padding: 25px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    position: relative;
-    transition: transform 0.3s, box-shadow 0.3s;
-    border-bottom: 3px solid var(--gold);
+    background: rgba(26, 45, 66, 0.6);
+    border-radius: 12px;
+    border: 1px solid rgba(240, 165, 0, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .blog-post:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 30px rgba(240, 165, 0, 0.2);
+    border-color: rgba(240, 165, 0, 0.4);
 }
 
 .blog-title {
@@ -924,5 +929,74 @@ header p {
     .tagline {
         font-size: 1rem;
         padding: 0 5px;
+    }
+}
+
+/* Medium Blog Styling */
+/* Medium Profile Section */
+.medium-profile {
+    margin-top: 40px;
+    padding: 30px;
+    background: linear-gradient(135deg, rgba(240, 165, 0, 0.1), rgba(240, 165, 0, 0.05));
+    border-radius: 12px;
+    border: 1px solid rgba(240, 165, 0, 0.2);
+    text-align: center;
+}
+
+.medium-cta h3 {
+    color: var(--gold);
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.medium-cta p {
+    color: var(--off-white);
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.medium-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--gold), #ffa500);
+    color: var(--navy);
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(240, 165, 0, 0.3);
+}
+
+.medium-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(240, 165, 0, 0.4);
+    background: linear-gradient(135deg, #ffa500, var(--gold));
+}
+
+.medium-button i {
+    font-size: 1.2rem;
+}
+
+/* Mobile optimizations for blog links */
+@media (max-width: 768px) {
+    .blog-link a {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+    
+    .medium-profile {
+        margin-top: 30px;
+        padding: 20px;
+    }
+    
+    .medium-cta h3 {
+        font-size: 1.2rem;
+    }
+    
+    .medium-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
     }
 }

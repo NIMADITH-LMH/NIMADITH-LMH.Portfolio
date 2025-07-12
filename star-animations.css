@@ -1,0 +1,175 @@
+/* UNIFIED STAR ANIMATION SYSTEM FOR ALL PORTFOLIO SECTIONS */
+
+/* Star particle animation keyframes */
+@keyframes floatStar {
+    0% { 
+        transform: translateY(0) rotate(0deg) scale(1); 
+        opacity: 0; 
+    }
+    20% { 
+        opacity: 0.8; 
+    }
+    80% { 
+        opacity: 0.8; 
+    }
+    100% { 
+        transform: translateY(-30px) rotate(360deg) scale(0.5); 
+        opacity: 0; 
+    }
+}
+
+@keyframes twinkleStar {
+    0%, 100% { 
+        opacity: 0.3; 
+        transform: scale(1); 
+    }
+    50% { 
+        opacity: 1; 
+        transform: scale(1.2); 
+    }
+}
+
+@keyframes shootingStar {
+    0% { 
+        transform: translateX(-100px) translateY(100px) rotate(45deg); 
+        opacity: 0; 
+    }
+    50% { 
+        opacity: 1; 
+    }
+    100% { 
+        transform: translateX(100px) translateY(-100px) rotate(45deg); 
+        opacity: 0; 
+    }
+}
+
+/* Star particles container */
+.star-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+/* Individual star particles */
+.star-particle {
+    position: absolute;
+    background-color: rgba(240, 165, 0, 0.6);
+    border-radius: 50%;
+    opacity: 0;
+    box-shadow: 0 0 15px rgba(240, 165, 0, 0.9);
+    transition: opacity 0.5s ease;
+}
+
+/* Star shapes using CSS */
+.star-particle.star-shape::before {
+    content: '✦';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(240, 165, 0, 0.8);
+    font-size: 8px;
+    line-height: 1;
+}
+
+.star-particle.star-shape {
+    background: none;
+    box-shadow: none;
+}
+
+/* Different star sizes */
+.star-particle.small {
+    width: 3px;
+    height: 3px;
+}
+
+.star-particle.medium {
+    width: 5px;
+    height: 5px;
+}
+
+.star-particle.large {
+    width: 7px;
+    height: 7px;
+}
+
+/* Enhanced hover effects for all cards */
+.card:hover,
+.project-card:hover,
+.pdf-card:hover,
+.timeline-content:hover,
+.skill:hover,
+.blog-post:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(240, 165, 0, 0.3);
+}
+
+/* Star animation trigger classes */
+.stars-active .star-particle {
+    opacity: 1;
+}
+
+.stars-twinkle .star-particle {
+    animation: twinkleStar 2s ease-in-out infinite;
+}
+
+.stars-float .star-particle {
+    animation: floatStar 3s ease-in-out infinite;
+}
+
+/* Shooting star effect */
+.shooting-star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: linear-gradient(45deg, transparent, rgba(240, 165, 0, 1), transparent);
+    border-radius: 50%;
+    animation: shootingStar 2s ease-in-out;
+}
+
+/* Constellation effect for larger elements */
+.constellation .star-particle {
+    animation: twinkleStar 3s ease-in-out infinite;
+}
+
+.constellation .star-particle:nth-child(2n) {
+    animation-delay: 0.5s;
+}
+
+.constellation .star-particle:nth-child(3n) {
+    animation-delay: 1s;
+}
+
+.constellation .star-particle:nth-child(4n) {
+    animation-delay: 1.5s;
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+    .star-particle {
+        animation-duration: 2s !important;
+    }
+    
+    /* Reduce particle count on mobile for performance */
+    .star-particle:nth-child(n+8) {
+        display: none;
+    }
+}
+
+/* Accessibility - Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .star-particle {
+        animation: none !important;
+    }
+    
+    .shooting-star {
+        animation: none !important;
+        opacity: 0 !important;
+    }
+}
